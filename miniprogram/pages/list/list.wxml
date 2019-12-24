@@ -1,0 +1,8 @@
+<view wx:for="{{audioList}}" wx:key='audioList'>
+  <view bindtap="gotoaudio" data-fid = "{{item.uripath}}">
+    <view>{{item.title}}</view>
+    <view>{{item.uripath}}</view>
+    <audio name="{{item.title}}" src="{{item.uripath}}" id="{{item._id}}" controls loop></audio>
+  </view>
+
+</view>
