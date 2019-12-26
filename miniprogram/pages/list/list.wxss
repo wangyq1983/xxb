@@ -1,1 +1,5 @@
-/* pages/list/list.wxss */
+.progress{
+  width:500rpx;
+  height:12rpx;
+  border-radius: 6rpx;
+}
