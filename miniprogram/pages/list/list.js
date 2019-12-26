@@ -24,7 +24,7 @@ Page({
   gotoaudio:function(e){
     console.log(e.currentTarget.dataset.fid);
     wx.navigateTo({
-      url: '/pages/test/test?fid=' + e.currentTarget.dataset.fid
+      url: '/pages/test/test?fid=' + e.currentTarget.dataset.fid + '&title=' + e.currentTarget.dataset.title
     })
   },
   /**

@@ -1,11 +1,17 @@
 <view class="audio">
-    
+    <view>
+        {{title}}
+        <text>-----------------</text>
+        {{fid}}
+    </view>
     <view class="control-process">
         <text class="current-process">{{currentTime}}</text>
         <slider class="slider" 
             bindchange="sliderChange" 
             block-size="16" 
             value="{{sliderValue}}"
+            bindtouchstart="touchstart"
+            bindtouchend="touchend"
         />
         <text class="total-process">{{duration}}</text>
     </view>

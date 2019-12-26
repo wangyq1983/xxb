@@ -6,23 +6,39 @@ Page({
    */
   data: {
     is_play:true,
-    fid:'cloud://dev1-vo13f.6465-dev1-vo13f-1300553401/mp3/book/1down/m1_unit1.mp3.mp3',
-    title:'m1_unit1',
+    fid:'',
+    title:'',
     duration:'',
     currentTime:'',
-    sliderValue:''
+    sliderValue:'',
+    isMoveSlider:false,
+    resetAudio:false
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    this.setData({
+      fid:options.fid,
+      title:options.title
+    })
     myAudio.src = this.data.fid;
     myAudio.title = this.data.title;
     this.audio_play();
   },
   radomNumber:function(){
 
+  },
+  touchstart:function(){
+    this.setData({
+      isMoveSlider:true
+    })
+  },
+  touchend:function(){
+    this.setData({
+      isMoveSlider:false
+    })
   },
   format: function(t) {
     //   时间格式化
@@ -39,26 +55,48 @@ Page({
   audio_play:function(){
    
     var that = this;
+    
     if(this.data.is_play == true){
-        console.log([this.data.fid,this.data.title])
-        console.log([myAudio.src,myAudio.title])
-        myAudio.play();
+        if(this.data.resetAudio){
+          // that.onLoad();
+          myAudio.src = this.data.fid;
+          myAudio.title = this.data.title;
+        }
+        // console.log([this.data.fid,this.data.title])
+        // console.log([myAudio.src,myAudio.title])
+        // myAudio.play();
         myAudio.onTimeUpdate(()=>{
-            console.log(myAudio.duration);
-            console.log(myAudio.currentTime);
-            console.log(((myAudio.currentTime/myAudio.duration)*100))
-            that.setData({
+
+            // console.log(myAudio.duration);
+            // console.log(myAudio.currentTime);
+            // console.log(((myAudio.currentTime/myAudio.duration)*100))
+            if(that.data.isMoveSlider == false){
+              that.setData({
                 duration:that.format(myAudio.duration),
                 currentTime:that.format(myAudio.currentTime),
                 sliderValue:((myAudio.currentTime/myAudio.duration)*100)
             })
-            console.log(this.data.duration);
-            console.log(this.data.currentTime);
-            console.log(this.data.sliderValue)
+            }else{
+              that.setData({
+                duration:that.format(myAudio.duration),
+                currentTime:that.format(myAudio.currentTime)
+            })
+            }
+            // console.log(this.data.duration);
+            // console.log(this.data.currentTime);
+            // console.log(this.data.sliderValue)
         });
-        myAudio.onStop(()=>{
-            this.reload();
+        myAudio.onEnded(()=>{
+          this.setData({
+            is_play: true,
+            resetAudio:true,
+            sliderValue:0,
+            currentTime:'00:00'
+          })
+         
         })
+
+        
     }else{
         myAudio.pause()
     }
@@ -68,11 +106,11 @@ Page({
   },
   sliderChange:function(e){
     var that = this;
-    console.log('----------------------------')
-    console.log(e.detail.value);
+    // console.log('----------------------------')
+    // console.log(e.detail.value);
     var jindu = e.detail.value*0.01*myAudio.duration;
-    console.log(jindu);
-    console.log([jindu.toFixed(3),typeof jindu.toFixed(3)])
+    // console.log(jindu);
+    // console.log([jindu.toFixed(3),typeof jindu.toFixed(3)])
     myAudio.seek(Number(jindu.toFixed(3)));
     this.setData({
         duration:that.format(myAudio.duration),
@@ -97,7 +135,7 @@ Page({
    * 生命周期函数--监听页面隐藏
    */
   onHide: function () {
-    
+    this.onUnload();
   },
 
   /**
