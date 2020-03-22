@@ -1,0 +1,25 @@
+<!--component/signup/signup.wxml-->
+<view style="position: absolute; left:0; right:0;top:0;bottom:0">
+  <view class="signupBg" wx:if="{{isSignup}}">
+    <view class="signupBox">
+      <view class="signclosebox">
+        <view class="closebox" bindtap="closeEvent">
+          <image src="/images/closed.png"></image>
+        </view>
+      </view>
+      <form bindsubmit="yyevent">
+        <view class="box">
+        <!-- <h3>请输入孩子的姓名</h3> -->
+        <input placeholder="请输入孩子的姓名" class="inputBox" name="signup_name" />
+         <!-- <h3>请输入孩子的年龄</h3> -->
+        <input placeholder="请输入孩子的年龄" class="inputBox" name="signup_age" />
+         <!-- <h3>请输入家长的手机号</h3> -->
+        <input placeholder="请输入家长的手机号" class="inputBox" name="signup_phone" />
+        <button class="yybtn"  formType="submit">预约报名</button>
+      </view>
+      </form>
+      
+    </view>
+  </view>
+  <view bindtap="signupEvent" class="signbtn">预约报名</view>
+</view>

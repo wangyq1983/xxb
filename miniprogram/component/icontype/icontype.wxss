@@ -1,0 +1,20 @@
+.iconType{
+  width:53rpx;
+  height:67rpx;
+  background: #b9eaff;
+  position: relative;
+}
+.iconWord{
+  width:67rpx;
+  height:32rpx;
+  line-height: 32rpx;
+  text-align: center;
+  font-size: 24rpx;
+  color:#fff;
+  position: absolute;
+  z-index: 9;
+  top:26rpx;
+  left:-7rpx;
+  background: #409cf2;
+  border-radius: 6rpx;
+}

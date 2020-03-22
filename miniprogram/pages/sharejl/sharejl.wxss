@@ -1,0 +1,23 @@
+/* pages/sharejl/sharejl.wxss */
+page{
+  background: #fff;
+}
+.sharejl{
+  width:100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background:#fff;
+}
+.create{
+  width:278rpx;
+  height:88rpx;
+  background: #ffb23b;
+  text-align: center;
+  line-height: 88rpx;
+  color:#fff;
+  border-radius:10rpx;
+  font-size: 34rpx
+}
+

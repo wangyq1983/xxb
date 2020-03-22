@@ -1,0 +1,69 @@
+<!--pages/main/main.wxml-->
+<wxs module="filter" src="tool.wxs"></wxs>
+<view>
+    <!-- 搜索部分开始 -->
+    <view class='search_box'>
+        <view class='area_search'>
+            <text class='didian' bindtap="choosedidian">青岛</text>
+        </view>
+        <view class='search'>
+            <image src='/images/search.png' style='width:30rpx; height:30rpx; margin-left:20rpx; margin-right:20rpx; opacity:0.5'></image>
+            <input 
+                placeholder="点击这个搜索框跳转" 
+                style='width:500rpx'
+                bindtap='jumpsearch'
+                />
+        </view>
+    </view>
+    <!-- 搜索部分结束 -->
+    <!-- 轮播部分开始 -->
+    <view>
+        <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" current="{{current}}" indicator-dots="true" indicator-color="#f6f6f" indicator-active-color="#fff" class='swiperWarp'>
+            <view wx:for="{{imgUrls}}" wx:key="{{imgUrls}}">
+                <navigator url="{{item.route}}" open-type="switchTab">
+                    <swiper-item class="swiperWarp">
+                        <image mode='scaleToFill' src="{{item.cover}}" class='swiperWarp' />
+                        <view style='position:absoute; z-index:999'>{{item.cover}}111</view>
+                    </swiper-item>
+                </navigator>
+            </view>
+        </swiper>
+    </view>
+    <!-- 轮播部分结束 -->
+
+    <!-- <navigator url="../my/my" open-type="switchTab">
+        <text>123</text>
+    </navigator> -->
+
+    <!-- submenu开始 -->
+    <view class='subMenu'>
+        <view class='subItem' wx:for="{{subMenu}}" wx:key="{{subMenu}}">
+          <view bindtap='subMenuGoto' data-item = '{{item}}'>
+            <image src="{{item.icon}}" class='subimg' />
+            <text>{{item.txt}}</text>
+          </view>
+        </view>
+    </view>
+    <!-- submenu结束 -->
+
+    <!-- 为您推荐开始 -->
+    <view class='recoBox'>
+        <view class='reco'>
+            <h2 class="recoTitle">为您推荐</h2>
+        </view>
+        <view wx:for="{{recoList}}" wx:key="{{recoList}}" bindtap='gotoReco' data-id="{{item.id}}"  class='recoItem'>
+            <view>
+                <image src='{{item.cover}}' class='recoImg'></image>
+            </view>
+            <view class='recoTxt1'>
+                <text class='titleStyle'>{{item.title}}</text>
+                <view class='recoTxt2'>
+                    [{{item.schoolType}}] {{filter.getSchoolName(item.schoolName)}}
+                </view>
+            </view>
+        </view>
+        <nodata wx:if = "{{isEmpty == 1}}"></nodata>
+        <endline wx:if="{{isEnd == true}}"></endline>
+    </view>
+    <!-- 为您推荐结束 -->
+</view>

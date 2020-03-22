@@ -1,0 +1,25 @@
+.jlbox{
+  width:700rpx;
+  background: #fff;
+  border-radius:10rpx;
+  margin:25rpx;
+  padding:20rpx;
+  box-sizing: border-box;
+}
+.jlwarp{
+  position: relative
+}
+.jlbtn{
+  position: absolute;
+  right:30rpx;
+  top:0;
+  background: #b60000;
+  vertical-align: middle;
+  color:#fff;
+  width:100rpx;
+  height:100%;
+  min-height:140rpx;
+  line-height: 140rpx;
+  text-align: center;
+  font-size: 24rpx;
+}

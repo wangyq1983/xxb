@@ -1,0 +1,54 @@
+page{
+  background: #fff;
+}
+.select{
+  width:750rpx;
+  height:100rpx;
+  position: fixed;
+  top:0;
+  left:0;
+  background: #fff;
+  z-index: 999;
+  display: flex;
+  flex-direction:row;
+  justify-content: space-around;
+  align-items: center
+}
+.conlist{
+  width:750rpx;margin-top:100rpx; border-top:2rpx solid #32acf5;
+  background: #fff;
+}
+.serachBtn{
+  background: #3f8bfc;
+  color:#fff;
+  padding:15rpx 33rpx;
+  border-radius:6rpx;
+  font-size: 28rpx;
+}
+.defaultCon{
+  width:512rpx;
+  height:428rpx;
+  margin:auto;
+  padding-top:100rpx;
+}
+.defaultCon image{
+  width:292rpx;
+  height:228rpx;
+  margin-left:100rpx;
+  margin-right:100rpx;
+}
+.defaultCon .word{
+  text-align: center;
+  line-height: 50rpx;
+  font-size: 30rpx;
+}
+.ziliaoItem{
+  padding:30rpx 20rpx; 
+  background:#f1faff; 
+  margin-bottom:20rpx;
+  font-size: 28rpx;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+}

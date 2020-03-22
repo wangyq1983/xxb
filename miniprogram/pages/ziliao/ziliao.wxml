@@ -1,0 +1,38 @@
+<view>
+	<view class="select">
+    
+		<picker bindchange="bindPickerChange1" value="{{yearindex}}" range="{{yeararray}}">
+      <view class="picker">
+        <view class="downarrow downarrowbg"></view>
+        <view>{{ispickeryear?yeararray[yearindex]:'选择年级'}}</view>
+      </view>
+    </picker>
+    <picker bindchange="bindPickerChange2" value="{{courseindex}}" range="{{coursearray}}">
+      <view class="picker">
+        <view class="downarrow downarrowbg"></view> 
+        <view>{{ispickercourse?coursearray[courseindex]:'选择科目'}}</view>
+      </view>
+    </picker>
+		<!-- <view>选择科目</view>
+		<view>选择版本</view> -->
+    <view bindtap="searchEvent" class="serachBtn">搜索</view>
+	</view>
+	<view class="conlist">
+		<view wx:for="{{ziliaoList}}" wx:key='ziliaoList'>
+			<view bindtap="gotoaudio" data-title="{{item.title}}" data-sid="{{item.sid}}" data-type="{{item.type}}" data-tips="{{item.tips}}" class="ziliaoItem">
+        <icontype type = "{{item.type}}" style="margin-right:20rpx;"></icontype>
+				<view>{{item.title}}</view>
+			</view>
+		</view>
+    <nodata wx:if = "{{isEmpty == 1}}"></nodata>
+    <view wx:if = "{{isDefault == 1}}" class="defaultCon">
+      <image src="../../images/search_bg.png"></image>
+      <view class="word">
+        <text>选择年级与科目之后，点击“搜索”，</text>
+        <text>就能出现您需要的学习资料了</text>
+        <!-- <text>搜素内容资源来自网络，如有侵权请联系</text> -->
+      </view>
+    
+    </view>
+	</view>
+</view>

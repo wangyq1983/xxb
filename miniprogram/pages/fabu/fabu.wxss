@@ -1,0 +1,50 @@
+/* pages/fabu/fabu.wxss */
+.fabuBox{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding:50rpx;
+}
+.jielongBox,.tableBox,.toupiaoBox{
+  width:693rpx;
+  height:226rpx;
+  position: relative;
+  margin-bottom: 28rpx;
+}
+.jielongBox image,.tableBox image,.toupiaoBox image{
+  width:693rpx;
+  height:226rpx;
+}
+.jielongImg,.tableImg,.toupiaoImg{
+  width:693rpx;
+  height:226rpx;
+  position: absolute;
+  top:0;
+  left:0;
+  z-index: 1
+}
+.jielongCon,.tableCon,.toupiaoCon{
+  width:505rpx;
+  height:176rpx;
+  padding-left: 188rpx;
+  padding-top:50rpx;
+  position: absolute;
+  top:0;
+  left:0;
+  z-index: 2;
+  color:#fff;
+}
+.title{
+  color:#fff;
+  font-size: 36rpx;
+}
+.info{
+  color:#fff;
+  font-size: 26rpx;
+  padding:10rpx;
+}
+.info text{
+  padding-right:30rpx;
+  height: 50vh;
+}

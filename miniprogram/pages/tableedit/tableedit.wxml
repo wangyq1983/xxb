@@ -1,0 +1,51 @@
+<view style="background:#fff" class="tableFillBox">
+	<form bindsubmit="creatJieLong">
+		<view wx:for="{{paramsList}}" wx:key="paramsList" class="paramslist warpItem" wx:for-index="idx">
+			<view wx:if="{{item.itemType == 'input'}}" data-con='{{item}}' bindtap="enterAdd" data-index='{{idx}}'>
+				<view class="titleFont">
+					<view class="idx">{{idx+1}}</view>
+					<view class="value">{{item.itemName}}</view>
+					<view wx:if="{{item.mustFill}}" class="mustfillStyle">必填</view>
+				</view>
+				<input name="{{item.itemName}}" value="{{item.value}}"></input>
+			</view>
+			<view wx:if="{{item.itemType == 'textarea'}}" data-con='{{item}}' bindtap="enterAdd" data-index='{{idx}}'>
+				<view class="titleFont">
+					<view class="idx">{{idx+1}}</view>
+					<view class="value">{{item.itemName}}</view>
+					<view wx:if="{{item.mustFill}}" class="mustfillStyle">必填</view>
+				</view>
+				<textarea name="{{item.itemName}}" style="height:100rpx;" value="{{item.value}}"></textarea>
+			</view>
+			<view wx:if="{{item.itemType == 'radio'}}" data-con='{{item}}' bindtap="enterAdd" data-index='{{idx}}'>
+				<view class="titleFont">
+					<view class="idx">{{idx+1}}</view>
+					<view class="value">{{item.itemName}}</view>
+				</view>
+				<view class="description">{{item.description}}</view>
+				<radio-group name="{{item.itemName}}">
+					<label wx:for="{{item.options}}" wx:key="item.options" style="display:block;margin-top:10rpx; margin-bottom:10rpx;">
+						<radio value="{{item.title}}" checked="{{item.checked}}">
+							<text class="labelFont">{{item.title}}</text>
+						</radio>
+					</label>
+				</radio-group>
+			</view>
+			<view wx:if="{{item.itemType == 'checkbox'}}" data-con='{{item}}' bindtap="enterAdd" data-index='{{idx}}'>
+				<view class="titleFont">
+					<view class="idx">{{idx+1}}</view>
+					<view class="value">{{item.itemName}}</view>
+				</view>
+				<view class="description">{{item.description}}</view>
+				<checkbox-group name="{{item.itemName}}">
+              <label class="checkbox" wx:for="{{item.options}}" wx:key="item.options" style="display:block;margin-top:10rpx; margin-bottom:10rpx;">
+                <checkbox value="{{item.title}}" checked="{{item.checked}}" /><text class="labelFont">{{item.title}}</text>
+              </label>
+            </checkbox-group>
+			</view>
+		</view>
+		<view class="jlBottom">
+			<button class="jielongButton" formType="submit">提交</button>
+		</view>
+	</form>
+</view>

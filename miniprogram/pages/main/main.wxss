@@ -1,0 +1,125 @@
+/* pages/main/main.wxss */
+
+.search_box{
+    width:750rpx;
+    height:80rpx;
+    background: #fff;
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    align-items: center
+}
+.area_search{
+  display:flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width:108rpx;  
+}
+.didian{
+    display:flex;
+    font-size: 24rpx;
+}
+.search{
+    height:62rpx;
+    background: #f6f6f6;
+    border-radius: 32rpx;
+    flex:1;
+    margin-right:20rpx;
+    font-size: 24rpx;
+    display: flex;
+    flex-direction: row;
+    align-items: center
+}
+.subMenu{
+    width:750rpx;
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    align-content: center;
+    border-bottom:12rpx solid #f1f1f1;
+    padding-bottom:30rpx;
+}
+.subItem{
+    width:186rpx;
+    height:150rpx;
+    margin-top:30rpx;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center
+
+}
+.subItem image{
+    width:100rpx;
+    height:100rpx;
+    margin:0 33rpx;
+    display: flex;
+    align-items: center
+}
+.subItem text{
+    width:100%;
+    margin-top: 20rpx;
+    height:30rpx;
+    line-height: 30rpx;
+    font-size: 26rpx;
+    text-align: center;
+    display: inline-block;
+    color:#666;
+}
+.recoBox{
+    margin:0 10px;
+}
+.reco{
+    height:85rpx;
+    line-height: 85rpx;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    font-size: 26rpx;
+}
+.recoItem{
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    height:172rpx;
+    margin-top:8rpx;
+    margin-bottom: 40rpx;
+}
+.recoImg{
+    width:290rpx;
+    height:172rpx;
+    border-radius: 10rpx;
+}
+.recoTxt1{
+    width:100%;
+    position: relative;
+    padding:1rpx 18rpx;
+}
+.recTitle{
+  font-size:26rpx;
+  color:#333;
+}
+.recoTxt2{
+    width:100%;
+    position: absolute;
+    height:20rpx;
+    line-height: 20rpx;
+    left:10rpx;
+    right:0;
+    bottom:10rpx;
+    font-size: 24rpx;
+    color:#999
+}
+
+.swiperWarp{
+  width:100%;
+  height:320rpx;
+}
+.subimg{
+  border-radius: 860rpx;
+}
+h2{
+  font-size: 32rpx;
+  font-weight: bold
+}

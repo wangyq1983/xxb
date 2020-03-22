@@ -1,29 +1,80 @@
 {
   "pages": [
-    "pages/index/index",
-    "pages/userConsole/userConsole",
-    "pages/storageConsole/storageConsole",
-    "pages/databaseGuide/databaseGuide",
-    "pages/addFunction/addFunction",
-    "pages/deployFunctions/deployFunctions",
-    "pages/chooseLib/chooseLib",
-    "pages/openapi/openapi",
-    "pages/openapi/serverapi/serverapi",
-    "pages/openapi/callback/callback",
-    "pages/openapi/cloudid/cloudid",
-    "pages/im/im",
-    "pages/im/room/room",
-    "pages/list/list",
-    "pages/test/test"
+    "pages/fabu/fabu",
+    "pages/ziliao/ziliao",
+    "pages/zllist/zllist",
+    "pages/audioplay/audioplay",
+    "pages/imgshow/imgshow",
+    "pages/jielong/jielong",
+    "pages/table/table",
+    "pages/tableadd/tableadd",
+    "pages/toupiao/toupiao",
+    "pages/sharejl/sharejl",
+    "pages/jldetail/jldetail",
+    "pages/jllist/jllist",
+    "pages/followpublic/followpublic",
+    "pages/tablefill/tablefill",
+    "pages/tabletest/tabletest",
+    "pages/jllistcj/jllistcj",
+    "pages/jllistcy/jllistcy",
+    "pages/tableshow/tableshow",
+    "pages/toupiaoadd/toupiaoadd",
+    "pages/tableexport/tableexport",
+    "pages/tableedit/tableedit",
+    "pages/toupiaodetail/toupiaodetail",
+    "pages/main/main",
+    "pages/my/my",
+    "pages/user/user",
+    "pages/wxlogin/wxlogin",
+    "component/nodata/nodata",
+    "component/icontype/icontype",
+    "component/signup/signup",
+    "component/editorbox/editorbox",
+    "component/addprogram/addprogram",
+    "component/jlstate/jlstate"
   ],
   "window": {
-    "backgroundColor": "#F6F6F6",
+    "backgroundColor": "#f4f4f4",
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#F6F6F6",
-    "navigationBarTitleText": "云开发 QuickStart",
+    "navigationBarTitleText": "学小帮 ",
     "navigationBarTextStyle": "black"
   },
+  "tabBar": {
+    "backgroundColor": "#f9f9f9",
+    "list": [
+      {
+        "pagePath": "pages/fabu/fabu",
+        "text": "发布",
+        "iconPath": "img/fabu.png",
+        "selectedIconPath": "img/fabu_cur.png"
+      },
+      {
+        "pagePath": "pages/ziliao/ziliao",
+        "text": "学习资料",
+        "iconPath": "img/ziliao.png",
+        "selectedIconPath": "img/ziliao_cur.png"
+      },
+      {
+        "pagePath": "pages/my/my",
+        "text": "我的",
+        "iconPath": "img/my.png",
+        "selectedIconPath": "img/my_cur.png"
+      }
+    ],
+    "color": "#8a8a8a",
+    "selectedColor": "#32acf5"
+  },
+  "permission": {
+    "scope.userLocation": {
+      "desc": "你的位置信息将用于小程序位置接口的效果展示"
+    }
+  },
   "sitemapLocation": "sitemap.json",
-  "style": "v2",
-  "requiredBackgroundModes":["audio"]
+  "requiredBackgroundModes": [
+    "audio"
+  ],
+  "networkTimeout": {
+    "request": 12000
+  }
 }

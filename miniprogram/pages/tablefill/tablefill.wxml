@@ -1,0 +1,72 @@
+<view>
+  <form bindsubmit="cyTable">
+    <view class="jlWarp" style="margin-bottom:120rpx;">
+      <view class="jlCon">
+        <view class="jlTitle">
+          {{jielong.title}}
+        </view>
+        <view class="jlUser">
+          <view class="jlUser1">
+            <image src="{{jielong.avatarUrl}}" mode="aspectFill" class="usericon"></image>
+            <view class="jlUserCon">{{jielong.nickName}}</view>
+            <view class="jlUserCon">{{jielong.monthDayTime}}</view>
+          </view>
+          <button class="jlfenxiang" open-type="share">
+            <image src="/img/share.png" class="shareIcon" mode="aspectFill"></image>
+            <view style="color:#7691fc; font-size:32rpx; padding-left:10rpx">分享</view>
+          </button>
+        </view>
+        <view class="jlword">
+          <text decode="{{true}}">
+            {{content}}
+          </text>
+        </view>
+        <view style="color:#aaaaaa; font-size:24rpx; margin-top:10rpx;">
+          结束时间：{{jielong.endDate}}
+        </view>
+      </view>
+      <editorbox isedit="{{jielong.editable}}" eid="{{id}}" type="2" listLength="{{jielong.statisticsTotal}}"></editorbox>
+      <view class="tableFillBox" wx:for="{{itemlist}}" wx:key="itemlist" wx:for-index="idx">
+        <view>
+          <view class="nameItem">
+            <view class="titleFont">{{item.itemName}}</view>
+            <view wx:if="{{item.mustFill}}" class="mustfillStyle">必填</view>
+          </view>
+          <view class="description">
+            {{item.description}}
+          </view>
+          <view wx:if="{{item.itemType == 'input'}}">
+            <input name="{{item.itemName}}"></input>
+          </view>
+          <view wx:if="{{item.itemType == 'textarea'}}">
+            <textarea name="{{item.itemName}}" style="height:100rpx;"></textarea>
+          </view>
+          <view wx:if="{{item.itemType == 'radio'}}">
+            <radio-group name="{{item.itemName}}">
+              <label wx:for="{{item.options}}" wx:key="item.options" style="display:block;margin-top:10rpx; margin-bottom:10rpx;">
+                <radio value="{{item.title}}" checked="{{item.checked}}">
+                  <text class="labelFont">{{item.title}}</text>
+                </radio>
+              </label>
+            </radio-group>
+          </view>
+          <view wx:if="{{item.itemType == 'checkbox'}}">
+            <checkbox-group name="{{item.itemName}}">
+              <label class="checkbox" wx:for="{{item.options}}" wx:key="item.options" style="display:block;margin-top:10rpx; margin-bottom:10rpx;">
+                <checkbox value="{{item.title}}" checked="{{item.checked}}" /><text class="labelFont">{{item.title}}</text>
+              </label>
+            </checkbox-group>
+          </view>
+        </view>
+      </view>
+      
+    </view>
+    <view class="jlAction">
+      <view bindtap="resultShow" class="resultShow">查看结果（{{totalnum}}人填写）</view>
+      <button formType="submit" wx:if = "{{isparticipate == false}}">确定提交</button>
+      <button formType="submit" wx:if = "{{isparticipate == true}}">再次提交</button>
+    </view>
+  </form>
+  <jlstate stateCode = '{{state}}'></jlstate>
+</view>
+<view wx:if="{{isloading}}" class="isloading"></view>

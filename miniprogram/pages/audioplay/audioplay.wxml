@@ -1,0 +1,30 @@
+<view class="audio">
+    <view>
+        {{title}}
+
+    </view>
+    <view class="control-process">
+        
+        <slider class="slider" 
+            bindchange="sliderChange" 
+            backgroundColor = '#d2d2d2'
+            activeColor = "#000"
+            block-color = "#fff"
+            value="{{sliderValue}}"
+            bindtouchstart="touchstart"
+            bindtouchend="touchend"
+        />
+        
+    </view>
+    <view class="playTiem">
+        <text class="current-process">{{currentTime}}</text>
+        <text class="total-process">{{duration}}</text>
+    </view>
+    <view class="icon-list">
+        <view class="audio_control">
+            <view bindtap="audio_play" class="{{is_play?'palyBtn':'pauseBtn'}}" style="width:64rpx; height:64rpx;"></view>
+            <!-- <image mode="widthFix" src="{{is_play? '../../images/play.png': '../../images/pause.png'}}" class="audio-icon audio-play" bindtap="audio_play"></image> -->
+        </view>
+        
+    </view>
+</view>

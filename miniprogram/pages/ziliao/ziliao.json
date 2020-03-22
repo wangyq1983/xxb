@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "nodata":"/component/nodata/nodata",
+    "icontype":"/component/icontype/icontype"
+  }
+}

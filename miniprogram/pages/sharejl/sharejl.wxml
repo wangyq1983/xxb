@@ -1,0 +1,15 @@
+<!--pages/sharejl/sharejl.wxml-->
+<view class="sharejl">
+  <view style="color:#666;margin:60rpx 0 70rpx;">
+    赶快发送到微信群，让大家来接龙吧
+  </view>
+  <view>
+    <button open-type="share">发送到微信群</button>
+  </view>
+  <!-- <view style="margin-top:80rpx;">
+    <view class="create" bindtap="creatCode">生成小程序码</view>
+  </view> -->
+  <!-- <view class="rendercode" style="margin-top:30rpx;">
+    <image src="data:image/png;base64,{{towCode}}" style="width:400rpx; height:400rpx;"></image>
+  </view> -->
+</view>

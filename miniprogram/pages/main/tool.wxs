@@ -1,0 +1,13 @@
+var filter = {
+  getSchoolName:function(datastr){
+    return (JSON.parse(datastr)[0].label)
+  },
+  getSchoolId:function(datastr){
+    return (JSON.parse(datastr)[0].value)
+  }
+}
+
+module.exports = {
+  getSchoolName: filter.getSchoolName,
+  getSchoolId:filter.getSchoolId
+}

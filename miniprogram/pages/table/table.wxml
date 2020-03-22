@@ -1,0 +1,84 @@
+<view style="background:#fff">
+  <form bindsubmit="creatJieLong">
+    <view class="tablearea">
+      <view class="inputTitleBox">
+        <input placeholder="标题(必填)" name="title" value="{{title}}"></input>
+      </view>
+      <view class="tableborder">
+        <textarea style="height:144rpx;line-height:48rpx;" bindblur="bindTextAreaBlur" placeholder="收集表内容(选填)" class="textareaBox" name="content" value="{{content}}" />
+      </view>
+      <view wx:for="{{paramsList}}" wx:key="paramsList" class="paramslist warpItem" wx:for-index="idx">
+        <view wx:if="{{item.itemType == 'input'}}" data-con='{{item}}' bindtap="enterAdd" data-index='{{idx}}'>
+          <view class="titleFont">
+            <view class="idx">{{idx+1}}</view>
+            <view class="value">{{item.value}}</view>
+          </view>
+          <view class="description">{{item.description}}</view>
+          <view class="inputView">此处待填写者输入</view>
+        </view>
+        <view wx:if="{{item.itemType == 'textarea'}}" data-con='{{item}}' bindtap="enterAdd" data-index='{{idx}}'>
+          <view class="titleFont">
+            <view class="idx">{{idx+1}}</view>
+            <view class="value">{{item.value}}</view>
+          </view>
+          <view class="description">{{item.description}}</view>
+          <view class="textareaView">此处待填写者输入</view>
+        </view>
+        <view wx:if="{{item.itemType == 'radio'}}" data-con='{{item}}' bindtap="enterAdd" data-index='{{idx}}'>
+          <view class="titleFont">
+            <view class="idx">{{idx+1}}</view>
+            <view class="value">{{item.value}}</view>
+          </view>
+          <view class="description">{{item.description}}</view>
+          <view wx:for="{{item.options}}" wx:key="item.options" wx:for-index="idx" class="optionItem">
+            <view class="radioIcon"></view>
+            <view style="padding-left:10rpx">{{item.title}}</view>
+          </view>
+        </view>
+        <view wx:if="{{item.itemType == 'checkbox'}}" data-con='{{item}}' bindtap="enterAdd" data-index='{{idx}}'>
+          <view class="titleFont">
+            <view class="idx">{{idx+1}}</view>
+            <view class="value">{{item.value}}</view>
+          </view>
+          <view class="description">{{item.description}}</view>
+          <view wx:for="{{item.options}}" wx:key="item.options" wx:for-index="idx" class="optionItem">
+            <view class="checkboxIcon"></view>
+            <view style="padding-left:10rpx">{{item.title}}</view>
+          </view>
+        </view>
+        <view class="subMenu" bindtap="showSheet" data-idx="{{idx}}">...</view>
+      </view>
+      <view class="addQuestion" bindtap="addEvent">
+        <view class="icon">+</view>
+        <view class="val">添加选项</view>
+      </view>
+    </view>
+    <view class="isMustFill" style="border-top:30rpx solid #f4f4f4">
+      <view>有效期</view>
+      <view class = "datetime">
+        <picker mode="date" value="{{date}}" start="1900-01-01" end="2100-12-31" bindchange="bindDateChange" style="margin-right:20rpx;">
+          <view class="picker">
+            {{date}}
+          </view>
+        </picker>
+
+        <picker mode="time" value="{{time}}" bindchange="bindTimeChange">
+          <view class="picker">
+            {{time}}
+          </view>
+        </picker>
+      </view>
+    </view>
+    <view class="isMustFill" style="border-top:30rpx solid #f4f4f4">
+      <view>填表结果所有人可见</view>
+      <switch checked="{{allsee}}" bindchange="changeallsee" name="alllook" />
+    </view>
+    <view class="jieshi">
+      <view wx:if="{{allsee == true}}">填表结果所有的参与者都可见</view>
+      <view wx:if="{{allsee == false}}">填表结果只有创建者可见,其他参与者不可见</view>
+    </view>
+    <view class="jlBottom">
+      <button class="jielongButton" formType="submit">{{btnTxt}}</button>
+    </view>
+  </form>
+</view>

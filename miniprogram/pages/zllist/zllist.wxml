@@ -1,0 +1,34 @@
+<view>
+  <view class="progressBox" wx:if = "{{isLoading}}">
+    <view>
+      <view class="progress">
+      <view class="jindu" style="width:{{progress}}%"></view>
+    </view>
+    <view class="loadfont">加载中......</view>
+    </view>
+  </view>
+</view>
+
+<view class="zlTitle">
+  {{title}}
+</view>
+
+<view wx:for="{{audioList}}" wx:key='audioList'>
+  <view 
+  bindtap="gotoaudio" 
+  data-title="{{item.title}}" 
+  data-fid = "{{item.uripath}}" 
+  data-type = "{{item.type}}"
+  data-tips = "{{item.tips}}"
+  class="ziliaoItem"
+  >
+    <icontype type = "{{item.type}}" style="margin-right:20rpx;"></icontype>
+    <view>{{item.title}}</view>
+   
+  </view>
+
+</view>
+
+<nodata wx:if = "{{isEmpty == 1}}"></nodata>
+
+

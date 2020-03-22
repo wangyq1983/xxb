@@ -1,0 +1,5 @@
+<view class="iconType">
+  <view class="iconWord">
+    {{type}}
+  </view>
+</view>

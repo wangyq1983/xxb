@@ -1,0 +1,30 @@
+<!--pages/tabletest/tabletest.wxml-->
+ <view class="tableFillBox" wx:for="{{itemlist}}" wx:key="{{itemlist}}" wx:for-index="idx">
+      <view>
+        <view>{{item.itemName}}</view>
+
+        <view wx:if="{{item.itemType == 'input'}}">
+          <input name="{{item.itemName}}" value="{{item.value}}"></input>
+        </view>
+
+        <view wx:if="{{item.itemType == 'radio'}}">
+          <radio-group name="{{item.itemName}}">
+            <label wx:for="{{item.options}}" wx:key="{{item.options}}">
+            <radio value="{{item.title}}" checked="{{item.checked}}">
+              <text>{{item.title}}</text>
+            </radio>
+            </label>
+            
+          </radio-group>
+        </view>
+
+        <view wx:if="{{item.itemType == 'checkbox'}}">
+          <checkbox-group name="{{item.itemName}}">
+            <label class="checkbox" wx:for="{{item.options}}" wx:key="item.options" >
+              <checkbox value="{{item.title}}" checked="{{item.checked}}" />{{item.title}}
+            </label>
+          </checkbox-group>
+        </view>
+
+      </view>
+    </view>

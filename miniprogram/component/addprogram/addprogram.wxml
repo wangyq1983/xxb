@@ -1,0 +1,8 @@
+<view class="addpro" wx:if = "{{stateAdd}}">
+  <view class="top"></view>
+  <image src="/img/addprogram.png" class="scimg"></image>
+  <view style="color:#888">添加到我的小程序,快捷访问</view>
+  <view class="closeBox" bindtap="closeadd">
+    <view class="close"></view>
+  </view>
+</view>

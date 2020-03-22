@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "editorbox": "/component/editorbox/editorbox",
+    "jlstate": "/component/jlstate/jlstate"
+  }
+}

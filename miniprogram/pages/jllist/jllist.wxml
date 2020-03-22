@@ -1,0 +1,15 @@
+<view wx:for="{{list}}" wx:key="list">
+  <view wx:if="{{item.type == '1'}}">
+    <view class="jlbox" bindtap="gotoDetail" data-id="{{item.id}}">
+      <view>{{item.title}}</view>
+      <view style="font-size:20rpx; color:#bbb">{{item.startDate}}</view>
+    </view>
+  </view>
+  <view wx:if="{{item.type == '2'}}">
+    <view class="jlbox" bindtap="gotoTableDetail" data-id="{{item.id}}">
+      <view>[表格]</view>
+      <view>{{item.title}}</view>
+      <view style="font-size:20rpx; color:#bbb">{{item.startDate}}</view>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "editorbox": "/component/editorbox/editorbox",
+    "nodata":"/component/nodata/nodata",
+    "jlstate": "/component/jlstate/jlstate"
+  }
+}

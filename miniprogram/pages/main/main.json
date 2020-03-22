@@ -1,0 +1,6 @@
+{
+    "usingComponents": {
+        "nodata": "/component/nodata/nodata",
+        "endline": "/component/endline/endline"
+    }
+}

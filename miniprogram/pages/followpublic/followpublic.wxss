@@ -1,0 +1,25 @@
+.publicwarp{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.title{
+  font-size: 36rpx;
+  padding:50rpx;
+}
+.info{
+  width:600rpx;  
+  font-size: 28rpx;
+  margin-bottom:50rpx;
+}
+.imgwarp{
+  width:380rpx;
+  height:380rpx;
+  border: 1rpx solid #ccc;
+  padding:10rpx;
+}
+.gzhimg{
+  width:380rpx;
+  height:380rpx;
+}

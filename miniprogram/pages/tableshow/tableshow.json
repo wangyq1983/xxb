@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "nodata":"/component/nodata/nodata",
+    "addpro": "/component/addprogram/addprogram"
+  }
+}

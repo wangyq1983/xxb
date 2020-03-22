@@ -1,0 +1,5 @@
+<view wx:if = "{{stateCode != 1}}" class="jlstate">
+  
+    {{stateTxt}}
+
+</view>

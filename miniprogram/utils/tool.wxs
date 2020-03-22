@@ -1,0 +1,13 @@
+var filter = {
+  formatTime: function (datastr) {
+    if(datastr){
+      var timer = getDate(datastr);
+      var allTime = (timer.getMonth() + 1).toString() + '-' + timer.getDate().toString() + ' ' + timer.getHours().toString() + ':' + (timer.getMinutes().toString() < 10 ? ('0' + timer.getMinutes().toString()) : timer.getMinutes().toString());
+      return allTime
+    }
+  }
+}
+
+module.exports = {
+  formatTime: filter.formatTime
+}

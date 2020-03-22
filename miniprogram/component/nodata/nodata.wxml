@@ -1,0 +1,7 @@
+<!--component/nodata/nodata.wxml-->
+<view class='nodata'>
+    <view style='margin-top:60rpx; margin-botto:50rpx;'>
+        <image src='/images/nodata.png' class='nodataImg'></image>
+    </view>
+    <view class='nodataTxt'>暂无数据</view>
+</view>

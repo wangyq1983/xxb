@@ -1,0 +1,51 @@
+<!--pages/jldetail/jldetail.wxml-->
+<view>
+  <view class="jlWarp">
+    <view class="jlCon">
+    <view class="jlTitle">
+      接龙标题:{{jielong.title}}
+    </view>
+    <view class="jlUser">
+      <view class="jlUser1">
+        <image src="{{jielong.avatarUrl}}" mode="aspectFill" class="usericon"></image>
+        <view class="jlUserCon">{{jielong.nickName}}</view>
+        <view class="jlUserCon">{{jielong.monthDayTime}}</view>
+      </view>
+      <button class="jlfenxiang" open-type="share">
+        <image src="/img/share.png" class="shareIcon" mode="aspectFill"></image>
+        <view style="color:#7691fc; font-size:32rpx; padding-left:10rpx">分享</view>
+      </button>    
+    </view>
+    <view class="jlword">
+      <text decode="{{true}}">
+        {{content}}
+      </text>
+    </view>
+    <view style="color:#aaaaaa; font-size:24rpx; margin-top:10rpx;">
+      结束时间：{{jielong.endDate}}
+    </view>
+  </view>
+  <editorbox isedit="{{jielong.editable}}" eid="{{id}}" type="1" listLength = "{{jielong.statisticsTotal}}"></editorbox>
+  <view class="jlList">
+    <view class="title">报名接龙名单</view>
+    <view class="list" wx:for="{{cylist}}" wx:key="cylist" wx:for-index='index'>
+      <view class="item">
+        <view class="itemIndex">{{index+1}}</view>
+        <image src="{{item.avatar}}" class="jlIcon"></image>
+        <view class="jlname">{{item.value.key1.name?item.value.key1.name:item.nickName}}</view>
+        <view wx:if = "{{item.userId == userId}}" class="jlcydel" bindtap="jlcydel" data-id = "{{item.id}}">删除</view>
+      </view>
+    </view>
+    <view wx:if = "{{jielong.statisticsList.length == 0}}">
+      <nodata></nodata>
+    </view>
+  </view>
+  </view>
+  <view class="jlAction">
+    <form bindsubmit="cyJielong">
+      <input name="name" placeholder="请输入名称，不填写则为微信昵称"  placeholder-class="jlinput"></input>
+      <button formType="submit">接龙</button>
+    </form>
+  </view>
+  <jlstate stateCode = '{{state}}'></jlstate>
+</view>

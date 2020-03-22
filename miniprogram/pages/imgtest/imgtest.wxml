@@ -1,0 +1,6 @@
+<view>
+  <view>
+    {{title}}
+  </view>
+  <image src="{{fid}}"></image>
+</view>

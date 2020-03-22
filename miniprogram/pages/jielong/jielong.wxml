@@ -1,0 +1,29 @@
+<!--pages/jielong/jielong.wxml-->
+<view style="background:#fff">
+  <form bindsubmit="creatJieLong">
+    <view class="inputTitleBox">
+    <input placeholder="标题(必填)" name="title" value="{{title}}"></input>
+  </view>
+  <view style="margin-bottom:180rpx">
+    <textarea placeholder="内容(选填)" class="textareaBox" name="content" value="{{content}}" />
+  </view>
+  <view class="isMustFill" style="border-top:30rpx solid #f4f4f4">
+      <view>有效期</view>
+      <view class = "datetime">
+        <picker mode="date" value="{{date}}" start="1900-01-01" end="2100-12-31" bindchange="bindDateChange" style="margin-right:20rpx;">
+          <view class="picker">
+            {{date}}
+          </view>
+        </picker>
+        <picker mode="time" value="{{time}}" bindchange="bindTimeChange">
+          <view class="picker">
+            {{time}}
+          </view>
+        </picker>
+      </view>
+    </view>
+  <view class="jlBottom">
+    <button class="jielongButton" formType="submit">{{btnTxt}}</button>
+  </view>
+  </form>
+</view>

@@ -1,0 +1,45 @@
+/* pages/tableadd/tableadd.wxss */
+page{
+  background: #fff;
+}
+.typeItem{
+  height:80rpx;
+  line-height:80rpx;
+  padding:30rpx 50rpx;
+}
+.inputItem{
+  height:100rpx;
+  line-height: 100rpx;
+  border-bottom:1rpx solid #dedede;
+}
+.isMustFill{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding:50rpx;
+}
+.selectBox{
+  padding:50rpx;
+}
+.seleceoption{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  height:80rpx;
+  line-height: 80rpx;
+  border-bottom:1rpx solid #999;
+}
+.addoption{
+  color:#7793f4;
+  height:90rpx;
+  line-height:90rpx;
+}
+.styleItem{
+  width:100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center
+}

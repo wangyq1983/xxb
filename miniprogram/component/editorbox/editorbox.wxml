@@ -1,0 +1,18 @@
+<view class="toolBar">
+    <view class="toolBox" bindtap="copyjielong">
+      <image src="/img/copyIcon.png" class="toolIcon"></image>
+      <view class="toolWord">复制</view>
+    </view>
+    <view class="toolBox" bindtap="exporttable" wx:if = "{{isedit}}">
+      <image src="/img/exportIcon.png" class="toolIcon"></image>
+      <view class="toolWord">导出</view>
+    </view>
+    <view class="toolBox" bindtap="editjielong" wx:if = "{{isedit}}">
+      <image src="/img/editIcon.png" class="toolIcon"></image>
+      <view class="toolWord">编辑</view>
+    </view>
+    <view class="toolBox" bindtap="deletejielong" wx:if = "{{isedit}}">
+      <image src="/img/deleteIcon.png" class="toolIcon"></image>
+      <view class="toolWord">删除</view>
+    </view>
+  </view>

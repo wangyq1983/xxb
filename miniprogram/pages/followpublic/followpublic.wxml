@@ -1,0 +1,10 @@
+<view class="publicwarp">
+  <view class="title">关注公众号</view>
+  <view class="info">
+    想及时获取学小帮的更新信息,使用技巧以及其他资讯，请微信公众号搜索“学小帮”关注即可；或 通过扫一扫的方式载入二维码关注即可
+  </view>
+  <view class="imgwarp">
+    <image src='/img/gzh.png' class="gzhimg" data-src="/img/gzh.png" 
+    bindtap="previewImage"></image>
+  </view>
+</view>

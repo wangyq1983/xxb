@@ -1,0 +1,66 @@
+
+<view>
+<form bindsubmit="cyTable">
+  <view class="jlWarp" style="margin-bottom:120rpx;">
+    <view class="jlCon">
+      <view class="jlTitle">
+        [投票]{{jielong.title}}
+      </view>
+      <view class="jlUser">
+        <view class="jlUser1">
+          <image src="{{jielong.avatarUrl}}" mode="aspectFill" class="usericon"></image>
+        <view class="jlUserCon">{{jielong.nickName}}</view>
+        <view class="jlUserCon">{{jielong.monthDayTime}}</view>
+        </view>
+        <button class="jlfenxiang" open-type="share">
+          <image src="/img/share.png" class="shareIcon" mode="aspectFill"></image>
+          <view style="color:#7691fc; font-size:32rpx; padding-left:10rpx">分享</view>
+        </button>
+      </view>
+      <view class="jlword">
+       <text decode="{{true}}">
+        {{content}}
+      </text>
+      </view>
+      <view style="color:#aaaaaa; font-size:24rpx; margin-top:10rpx;">
+          结束时间：{{jielong.endDate}}
+        </view>
+    </view>
+    <editorbox isedit="{{jielong.editable}}" eid="{{id}}" type="3" listLength = "{{jielong.statisticsTotal}}"></editorbox>
+    <view class="tableFillBox">
+      <view>
+        <view wx:if="{{optiontype == 'radio'}}">
+          <radio-group name = "radio_tp">
+            <label wx:for="{{optionlist}}" wx:key="optionlist" style="display:block;margin-top:10rpx; margin-bottom:20rpx;">
+            <radio value="{{item.title}}" checked="{{item.checked}}">
+              <text class="tpStyle">{{item.title}}</text>
+            </radio>
+            <view wx:if = "{{item.percentage}}" class="toupiaoLine">
+              <view style="width:{{item.percentage}}%; height:15rpx; background:#2ad82e; border-radius:5rpx"></view>
+              <view class="piaoshu">{{item.count}}票</view>
+            </view>
+            </label>
+            
+          </radio-group>
+        </view>
+        <view wx:if="{{optiontype == 'checkbox'}}">
+          <checkbox-group name = "checkbox_tp">
+            <label class="checkbox" wx:for="{{optionlist}}" wx:key="optionlist" style="display:block;margin-top:10rpx; margin-bottom:20rpx;" >
+              <checkbox value="{{item.title}}" checked="{{item.checked}}" /><text class="tpStyle">{{item.title}}</text>
+              <view wx:if = "{{item.percentage && item.percentage != '0.00'}}" class="toupiaoLine">
+              <view style="width:{{item.percentage}}%; height:15rpx; background:#2ad82e; border-radius:5rpx; "></view>
+              <view class="piaoshu">{{item.count}}票</view>
+              </view>
+            </label>
+          </checkbox-group>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="jlAction">
+      <button formType="submit" wx:if="{{participate == false}}">确定提交</button>
+      <button disabled = 'true' wx:if="{{participate == true}}" >已投票</button>
+  </view>
+  </form>
+  <jlstate stateCode = '{{state}}'></jlstate>
+</view>

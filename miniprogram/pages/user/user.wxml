@@ -1,0 +1,14 @@
+<view>
+  <image src='{{userInfo.avatarUrl}}'></image>
+  <view>{{userInfo.nickName}}</view>
+  <van-panel title='用户img'>
+    <van-row wx:for="{{photos}}" wx:key="{{_id}}">
+    <navigator url='../photo/photo?id={{item._id}}'>
+      <van-col>
+        <image src='{{item.image}}' style='width:100rpx;height:100rpx'></image>
+        <text>1</text>
+      </van-col>
+      </navigator>
+    </van-row>
+  </van-panel>
+</view>

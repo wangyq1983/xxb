@@ -1,0 +1,29 @@
+<official-account></official-account>
+
+<view style="padding:30rpx;">
+  <view class="">
+    Excel表格下载地址：
+  </view>
+  <view class="excelPath">
+    {{copyPath}}
+  </view>
+  <view style="font-size:24rpx; color:#999">友情提示：Excel下载链接一个小时之内有效</view>
+  <view class="eventBox">
+    <view bindtap="copyevent" class="eventBtn copy">
+      复制链接
+    </view>
+    <view bindtap="openevent" class="eventBtn open">
+      直接打开
+    </view>
+  </view>
+
+  <view class="Course">
+    <view>如何导出Excel表格到电脑</view>
+    <view>1、点击 <text class="keypoint">“复制链接”</text>。</view>
+    <view>2、在微信手机端找到<text class="keypoint">“文件传输助手”</text>。</view>
+    <view>3、粘贴链接地址并发送。</view>
+    <view>4、在微信电脑客户端找到 <text class="keypoint">“文件传输助手”</text>。</view>
+    <view>5、点击刚刚粘贴的链接，直接下载保存Excel表格</view >
+    
+  </view>
+</view>

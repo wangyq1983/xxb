@@ -1,0 +1,38 @@
+<view>
+<form bindsubmit="saveoption">
+  <view class="typeItem">
+  <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
+    <view class="picker">
+      <view class="downarrow downarrowbg"></view>
+      <view>{{array[index]}}</view>
+    </view>
+  </picker>
+  </view>
+  <view style="padding:20rpx 50rpx;">
+    <input placeholder="输入名称(必填)" class="inputItem" name = "title" value="{{itemParams.itemName}}"></input>
+    <input placeholder="说明(选填)" class="inputItem" name = "shuoming" value="{{itemParams.description}}"></input>
+  </view>
+  <view wx:if = "{{selectShow}}" class="selectBox">
+    <view>
+      <view>选项</view>
+      <view wx:for="{{selectOption}}" wx:key="selectOption" class="seleceoption" wx:for-index="idx">
+        <view style="margin-right:50rpx;">{{selectIndex[idx]}}</view>
+        <view class="styleItem">
+          <input placeholder="选项{{idx+1}}" name = "option_{{idx}}" value="{{item.value}}"  bindinput='i_name' id="option_{{idx}}"></input>
+          <view bindtap="jianevent" data-idx="{{idx}}">⊝</view>
+        </view>
+      </view>
+    </view>
+    <view>
+      <view class="addoption" bindtap="addoption" data-f = "{{selectOption}}">+ 添加选项</view>
+    </view>
+  </view>
+  <view class="isMustFill">
+    <view>必填</view>
+    <switch checked="{{isfillin}}" bindchange="changeIndicatorDots" name = "mustfill" />
+  </view>
+  <view style="width:80%; margin-top:100rpx; margin:10%;">
+    <button formType="submit">保存</button>
+  </view>
+</form>
+</view>

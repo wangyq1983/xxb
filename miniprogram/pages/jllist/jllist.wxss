@@ -1,0 +1,8 @@
+.jlbox{
+  width:700rpx;
+  background: #fff;
+  border-radius:10rpx;
+  margin:25rpx;
+  padding:20rpx;
+  box-sizing: border-box;
+}

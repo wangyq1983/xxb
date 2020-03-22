@@ -1,0 +1,38 @@
+/* pages/tellogin/tellogin.wxss */
+.warpCon{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  padding-top:80rpx;
+}
+.warpItem{
+  width:600rpx;
+  height:80rpx;
+  border-bottom:1rpx solid #ccc;
+  padding-top:80rpx;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between
+  }
+.inputBox{
+  width:600rpx;
+  height:80rpx;
+}
+.codeBtn{
+  height:80rpx;
+  font-size: 30rpx;
+  color:#888;
+  text-align: right;
+}
+.loginBtn{
+    width:600rpx;
+    height:80rpx;
+    line-height:80rpx;
+    text-align: center;
+    background: #00f;
+    margin-top:50rpx;
+}
+.sendMsg{
+    color:#ddd;
+}

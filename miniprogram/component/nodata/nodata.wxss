@@ -1,0 +1,16 @@
+/* component/nodata/nodata.wxss */
+.nodata{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center
+}
+.nodataImg{
+    width:299rpx;
+    height:253rpx;
+}
+.nodataTxt{
+    font-size: 30rpx;
+    text-align: center;
+    color:#666;
+}
