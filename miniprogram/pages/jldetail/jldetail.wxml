@@ -11,10 +11,10 @@
         <view class="jlUserCon">{{jielong.nickName}}</view>
         <view class="jlUserCon">{{jielong.monthDayTime}}</view>
       </view>
-      <button class="jlfenxiang" open-type="share">
-        <image src="/img/share.png" class="shareIcon" mode="aspectFill"></image>
-        <view style="color:#7691fc; font-size:32rpx; padding-left:10rpx">分享</view>
-      </button>    
+      <view class="jlfenxiang" open-type="share" bindtap="shareEvent">
+          <image src="/img/share.png" class="shareIcon" mode="aspectFill"></image>
+          <view style="color:#7691fc; font-size:32rpx; padding-left:10rpx">分享</view>
+        </view>   
     </view>
     <view class="jlword">
       <text decode="{{true}}">
@@ -48,4 +48,5 @@
     </form>
   </view>
   <jlstate stateCode = '{{state}}'></jlstate>
+  <shareCom sid = "{{id}}" type = "1" title = "{{jielong.title}}" showShare = "{{showShare}}"></shareCom>
 </view>

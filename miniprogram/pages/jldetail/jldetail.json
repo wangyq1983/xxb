@@ -2,6 +2,7 @@
   "usingComponents": {
     "editorbox": "/component/editorbox/editorbox",
     "nodata":"/component/nodata/nodata",
-    "jlstate": "/component/jlstate/jlstate"
+    "jlstate": "/component/jlstate/jlstate",
+    "shareCom": "/component/share/share"
   }
 }

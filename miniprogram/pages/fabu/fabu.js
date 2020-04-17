@@ -7,7 +7,8 @@ Page({
    * 页面的初始数据
    */
   data: {
-    
+    showcodeimg:false,
+    bufferImg:''
   },
 
   /**
@@ -23,14 +24,75 @@ Page({
         url: '/pages/wxlogin/wxlogin?'+origin
       })
     }else{
-      this.init()
+      // if (api.tokenOvertime()){
+        this.init()
+      // }
     }
   },
   async init(){
     await api.showLoading();
     var loginres = await api.getData(api.webapi.isLogin);
     await api.hideLoading();
-    api.reshook(loginres,this.route)
+    if (api.reshook(loginres, this.route)){
+      console.log(loginres.data.accessToken)
+      console.log(loginres.data.accessTokenDate)
+      api.getaccessToken(loginres.data.accessToken, loginres.data.accessTokenDate,loginres.data.timestamp)
+    }
+  },
+  cloudtest:function(){
+    var that = this;
+    wx.cloud.callFunction({
+      name: 'creatcode',
+      data: {
+        scene: 'from=twocode',
+        page: 'pages/fabu/fabu'
+      }
+    }).then(res => {
+      console.log(res)
+      console.log(res.result)
+      console.log(res.result.result)
+
+      let bufferImg = "data:image/png;base64," + wx.arrayBufferToBase64(res.result.result);
+      console.log(bufferImg)
+      that.setData({
+        bufferImg: bufferImg,
+        showcodeimg:true
+      })
+    }).catch(
+      console.error
+    )
+  },
+  showpreview:function(){
+    var that = this;
+    wx.previewImage({
+      urls: [that.data.bufferImg],
+    })
+  },
+  saveimg:function(){
+    var that = this;
+    wx.downloadFile({
+      url: that.data.bufferImg,
+      success(res){
+        wx.saveImageToPhotosAlbum({
+          filePath: res.tempFilePath,
+          success(res) {
+            console.log('saveimg');
+            wx.showModal({
+              title: '保存成功',
+              content: '图片成功保存到相册了，快去发朋友圈吧~',
+              showCancel: false,
+              confirmText: '确认',
+              confirmColor: '#21e6c1',
+              success: function (res) {
+                if (res.confirm) {
+                  console.log('用户点击确定');
+                }
+              }
+            })
+          }
+        })
+      }
+    })
   },
   jielongEvent:function(){
     wx.navigateTo({

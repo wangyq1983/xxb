@@ -1,6 +1,7 @@
 {
   "usingComponents": {
     "editorbox": "/component/editorbox/editorbox",
-    "jlstate": "/component/jlstate/jlstate"
+    "jlstate": "/component/jlstate/jlstate",
+    "shareCom":"/component/share/share"
   }
 }

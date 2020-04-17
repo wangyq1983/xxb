@@ -73,6 +73,11 @@ Page({
             url: '/pages/jllistcy/jllistcy',
         })
     },
+  enterRoster:function(){
+    wx.navigateTo({
+      url: '/pages/roster/roster',
+    })
+  },
     followpublic:function(){
         wx.navigateTo({
             url: '/pages/followpublic/followpublic',

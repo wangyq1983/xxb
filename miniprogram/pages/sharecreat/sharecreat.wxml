@@ -1,0 +1,3 @@
+<view class="teststyle" style="margin-top:30rpx;">
+    <image src="{{bufferImg}}" wx:if = "{{showcodeimg}}" style="width:300rpx; height:300rpx;" bindtap="showpreview"></image>
+</view>

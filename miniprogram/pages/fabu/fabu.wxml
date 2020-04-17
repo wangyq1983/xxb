@@ -40,6 +40,16 @@
         </view>
       </view>
   </view>
+
+  <!-- <view bindtap="cloudtest">
+    test
+  </view> -->
+  <!-- <view class="teststyle">
+    <image src="{{bufferImg}}" wx:if = "{{showcodeimg}}" style="width:300rpx; height:300rpx;" bindtap="showpreview"></image>
+  </view>
+  <view bindtap="saveimg" wx:if = "{{showcodeimg}}" style="border:1rpx solid #333; padding:10rpx 30rpx; margin:20rpx;">
+    save img
+  </view> -->
 </view>
 <view style="margin-top:180rpx">
 <ad unit-id="adunit-f533e77f77901d43"></ad>

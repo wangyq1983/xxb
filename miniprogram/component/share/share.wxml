@@ -1,0 +1,21 @@
+<!--component/share/share.wxml-->
+<view class="sharebox" wx:if="{{showShare}}">
+  <view class="shareCon">
+    <button open-type="share" class="shareBox shareBg">
+        <image src="/images/share_friend.png" class="iconstyle"></image>
+        <view class="sharefont">分享好友</view>
+    </button>
+    <view class="shareBox" bindtap="createCode">
+      <view>
+        <image src="/images/share_haibao.png" class="iconstyle"></image>
+      </view>
+      <view class="wordStyle">
+        <view class="sharefont">生成小程序码</view>
+        <view style="font-size:22rpx; color:#999;">可分享到朋友圈</view>
+      </view>
+    </view>
+  </view>
+  <view class="sharecancle" bindtap="cancleEvent">
+    取消
+  </view>
+</view>

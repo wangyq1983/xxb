@@ -1,0 +1,9 @@
+.rosterBtn{
+  width:320rpx;
+  height:80rpx;
+  line-height: 80rpx;
+  border: 1rpx dashed #999;
+  text-align: center;
+  margin:50rpx auto;
+  color:#999;
+}

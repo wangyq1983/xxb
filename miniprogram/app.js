@@ -31,7 +31,8 @@ App({
     }).join("&");
     return dataparams
   },
-  onLaunch: function () {
+  onLaunch: function (options) {
+    console.log(options);
     if (wx.cloud) {
       wx.cloud.init({
         traceUser: true

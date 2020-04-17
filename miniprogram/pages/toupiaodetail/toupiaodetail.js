@@ -1,4 +1,4 @@
-// pages/jldetail/jldetail.js
+ // pages/jldetail/jldetail.js
 var app = getApp();
 const api = app.globalData.api;
 var allPath;
@@ -18,31 +18,44 @@ Page({
     statisticsList: [],
     participate:false,
     state: 1,
-    content: ''
+    content: '',
+    showShare:false
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    console.log(options.id);
-    var params = {
-      id: options.id
-    };
-    this.setData({
-      id: options.id
-    })
+    if (options.scene) {
+      var sceneid = decodeURIComponent(options.scene).split("=")
+      var params = {
+        id: sceneid[1]
+      }
+      this.setData({
+        id: sceneid[1]
+      })
+    }
+    if (options.id) {
+      var params = {
+        id: options.id
+      };
+      this.setData({
+        id: options.id
+      })
+    }
+
+    
     if(!app.isLogin()){
       var data = {
         url:'pages/toupiaodetail/toupiaodetail',
-        id:options.id
+        id:this.data.id
       }
       var origin = app.encodeData(data);
       wx.redirectTo({
         url: '/pages/wxlogin/wxlogin?'+origin
       })
     }else{
-      allPath = this.route + '?id=' + options.id;
+      allPath = this.route + '?id=' + this.data.id;
       this.inittpdetail(allPath,params);
     }
   },
@@ -123,6 +136,11 @@ Page({
     }
     this.cytp(params)
     
+  },
+  shareEvent:function(){
+    this.setData({
+      showShare:true
+    })
   },
   jlcySuccess: function () {
     var that = this;

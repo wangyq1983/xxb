@@ -25,13 +25,16 @@
     "pages/main/main",
     "pages/my/my",
     "pages/user/user",
+    "pages/roster/roster",
     "pages/wxlogin/wxlogin",
     "component/nodata/nodata",
     "component/icontype/icontype",
     "component/signup/signup",
     "component/editorbox/editorbox",
     "component/addprogram/addprogram",
-    "component/jlstate/jlstate"
+    "component/jlstate/jlstate",
+    "component/share/share",
+    "pages/sharecreat/sharecreat"
   ],
   "window": {
     "backgroundColor": "#f4f4f4",

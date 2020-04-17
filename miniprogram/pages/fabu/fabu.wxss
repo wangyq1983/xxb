@@ -48,3 +48,9 @@
   padding-right:30rpx;
   height: 50vh;
 }
+.teststyle{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center
+}

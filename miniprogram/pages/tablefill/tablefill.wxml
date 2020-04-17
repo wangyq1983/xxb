@@ -1,4 +1,4 @@
-<view>
+ <view>
   <form bindsubmit="cyTable">
     <view class="jlWarp" style="margin-bottom:120rpx;">
       <view class="jlCon">
@@ -11,10 +11,10 @@
             <view class="jlUserCon">{{jielong.nickName}}</view>
             <view class="jlUserCon">{{jielong.monthDayTime}}</view>
           </view>
-          <button class="jlfenxiang" open-type="share">
+          <view class="jlfenxiang" open-type="share" bindtap="shareEvent">
             <image src="/img/share.png" class="shareIcon" mode="aspectFill"></image>
             <view style="color:#7691fc; font-size:32rpx; padding-left:10rpx">分享</view>
-          </button>
+        </view>
         </view>
         <view class="jlword">
           <text decode="{{true}}">
@@ -68,5 +68,6 @@
     </view>
   </form>
   <jlstate stateCode = '{{state}}'></jlstate>
+  <shareCom sid = "{{id}}" type = "2" title = "{{jielong.title}}" showShare = "{{showShare}}"></shareCom>
 </view>
 <view wx:if="{{isloading}}" class="isloading"></view>

@@ -1,6 +1,6 @@
 // var version = 'v1_1/';
 var webhost = "https://develop.vsclouds.com/jielong/";
-//var webhost = 'https://jielongtest.vsclouds.com/jielong/';
+// var webhost = 'https://jielongtest.vsclouds.com/jielong/';
 var webapi = {
   // 创建接龙
   newjielong: webhost + "solitaire/create",
@@ -42,34 +42,15 @@ var webapi = {
   // 表格导出
   exportexcel: webhost + 'solitaire/excel/create',
 
-  // 学校列表
-  schoolList: webhost + "public/school/get/list",
+  // 成员列表加载
+  memberlist: webhost + 'solitaire/member/list',
   
-  // 学校详情
-  schoolDetail: webhost + "public/school/detail/info/school_id",
+  // excel上传
+  // 参数名：file，类型文件
+  excelUpload: webhost + 'solitaire/member/excel/upload',
 
-  // 学员列表
-  studentList: webhost + "public/course/student/list",
-  // 学员详情
-  studentDetail: webhost + "public/course/student/detail",
-
-  // 推荐列表
-  recoList: webhost + "public/course/recommend/detail/list",
-  // 推荐详情
-  recoDetail: webhost + "public/course/recommend/detail/info",
-
-  // 教师列表
-  teacherList: webhost + "public/course/teacher/list",
-  // 教师详情
-  teacherDetail: webhost + "public/course/teacher/detail",
-
-  // 课程列表
-  lessonList: webhost + "public/course/list",
-  // 课程详情
-  lessonDetail: webhost + "public/course/info/detail",
-
-  // 课程类型列表
-  lessonType: webhost + "public/course/type/list",
+  // 成员删除
+  memberdel: webhost + 'solitaire/member/delete', 
 
   // 手机登录
   phoneLogin: webhost + "public/weixin/mp/common/user/login/phone",
@@ -77,11 +58,6 @@ var webapi = {
   // 微信登陆
   wxLogin: webhost + "public/weixin/mp/common/user/login/wx",
 
-  // 收藏
-  collection: webhost + "course/user/collection",
-
-  // 收藏列表
-  collectionList: webhost + "course/user/collection/list",
 
   // 绑定微信
   bindwx: webhost + "weixin/mp/common/user/bind",
@@ -325,6 +301,7 @@ function formatNumber(n) {
   return n[1] ? n : '0' + n
 }
 
+// 字符型的true false转换布尔型
 const strbool = (str) =>{
   if(str == 'true'){
     return true
@@ -339,10 +316,97 @@ const strbool = (str) =>{
 
 }
 
-// 获取accessToken
-const getaccessToken = () => {
+// 判断accessToken是否超时
+const tokenOvertime = () =>{
+  var timediff = 60 * 60 + 60 * 50; //暂定1个小时
+  try {
+    var accessTokenValue = wx.getStorageSync('accessToken');
+    var accessTimeValue = wx.getStorageSync('accessTime');
+    var timestampValue = wx.getStorageSync('timestamp');
+    if (accessTokenValue && accessTimeValue && timestampValue) {
+      var newtimestamp = Date.parse(new Date());
+      var curtimestamp = newtimestamp / 1000;
+      console.log("存储时间：" + accessTimeValue);
+      console.log("存储时间戳为：" + timestampValue);
+      console.log("当前时间戳为：" + curtimestamp);
+      console.log('时间戳相差：' + (curtimestamp - timestampValue))
+      if ((curtimestamp - timestampValue) < timediff) {
+        return false
+      } else {
+        return true
+      }
+    }
+  } catch (e) {
+    return true
+  }
 
 }
+
+// 获取accessToken
+const getaccessToken = (accesstoken, accesstime, timestamp) => {
+  wx.setStorage({
+    key: "accessToken",
+    data: accesstoken
+  })
+  wx.setStorage({
+    key: "accessTime",
+    data: accesstime
+  })
+  wx.setStorage({
+    key: "timestamp",
+    data: timestamp
+  })  
+}
+
+/** 
+ * new Date() ---> 转化为 年 月 日 时 分 秒
+ * let date = new Date();
+ * date: 传入参数日期 Date
+*/
+function formatTime(date) {
+  var year = date.getFullYear()
+  var month = date.getMonth() + 1
+  var day = date.getDate()
+
+  var hour = date.getHours()
+  var minute = date.getMinutes()
+  var second = date.getSeconds()
+
+
+  return [year, month, day].map(formatNumber).join('/') + ' ' + [hour, minute, second].map(formatNumber).join(':')
+}
+
+// function formatNumber(n) {
+//   n = n.toString()
+//   return n[1] ? n : '0' + n
+// }
+
+/** 
+ * 时间戳转化为年 月 日 时 分 秒 
+ * number: 传入时间戳 
+ * format：返回格式，支持自定义，但参数必须与formateArr里保持一致 
+*/
+function formatTimeTwo(number, format) {
+
+  var formateArr = ['Y', 'M', 'D', 'h', 'm', 's'];
+  var returnArr = [];
+
+  var date = new Date(number * 1000);
+  returnArr.push(date.getFullYear());
+  returnArr.push(formatNumber(date.getMonth() + 1));
+  returnArr.push(formatNumber(date.getDate()));
+
+  returnArr.push(formatNumber(date.getHours()));
+  returnArr.push(formatNumber(date.getMinutes()));
+  returnArr.push(formatNumber(date.getSeconds()));
+
+  for (var i in returnArr) {
+    format = format.replace(formateArr[i], returnArr[i]);
+  }
+  return format;
+}
+
+
 module.exports = {
   webapi,
   getData,
@@ -353,5 +417,7 @@ module.exports = {
   getDate,
   getTimes,
   strbool,
-  postDataWx
+  postDataWx,
+  getaccessToken,
+  tokenOvertime
 };

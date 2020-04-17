@@ -76,6 +76,27 @@
 					"pathName": "pages/jldetail/jldetail",
 					"query": "id=142395",
 					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/my/my",
+					"pathName": "pages/my/my",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/roster/roster",
+					"pathName": "pages/roster/roster",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/toupiaodetail/toupiaodetail",
+					"pathName": "pages/toupiaodetail/toupiaodetail",
+					"query": "id=143116",
+					"scene": null
 				}
 			]
 		}

@@ -2,7 +2,6 @@
 const app = getApp();
 const api = app.globalData.api;
 Page({
-
   /**
    * 页面的初始数据
    */
@@ -10,7 +9,9 @@ Page({
     id:'',
     title:'',
     type:'',
-    towCode:''
+    towCode:'',
+    showcodeimg: false,
+    bufferImg: ''
   },
 
   /**
@@ -31,28 +32,100 @@ Page({
   shareJl:function(){
     this.onShareAppMessage()
   },
-  creatCode:async function(){
-    await api.showLoading();
-    var loginres = await api.getData(api.webapi.isLogin);
-    await api.hideLoading();
-    if (api.reshook(loginres, this.route)){
-      console.log(loginres.data.accessToken);
-      var codeImgapi = 'https://api.weixin.qq.com/wxa/getwxacodeunlimit?access_token=' + loginres.data.accessToken;
-      var param = {
-        scene: 123
-      }
-      await api.showLoading();
-      var codeImgres = await api.postDataWx(codeImgapi,param);
-      await api.hideLoading();
-      console.log(codeImgres)
-      this.setData({
-        towCode: wx.arrayBufferToBase64(codeImgres.data)
-      })
-      // wx.setStorage({
-      //   key: "accessToken",
-      //   data: "value"
-      // })
+  cloudtest :function () {
+    var that = this;
+    var jielongpath;
+    if (this.data.type == 1) {
+      jielongpath = 'pages/jldetail/jldetail';
     }
+    if (this.data.type == 2) {
+      jielongpath = 'pages/tablefill/tablefill';
+    }
+    if (this.data.type == 3) {
+      jielongpath = 'pages/toupiaodetail/toupiaodetail';
+    }
+    console.log(this.data.type);
+    console.log(jielongpath);
+
+    wx.showLoading({
+      title: '生成中...'
+    });
+    wx.cloud.callFunction({
+      name: 'creatcode',
+      data: {
+        scene: 'id='+that.data.id,
+        page: jielongpath
+      }
+    }).then(res => {
+      console.log(res)
+      console.log(res.result)
+      console.log(res.result.result)
+      let bufferImg = "data:image/png;base64," + wx.arrayBufferToBase64(res.result.result);
+      console.log(bufferImg)
+      wx.hideLoading();
+      that.setData({
+        bufferImg: bufferImg,
+        showcodeimg: true
+      })
+    }).catch(
+      console.error
+    )
+  },
+  showpreview: function () {
+    var that = this;
+    wx.previewImage({
+      urls: [that.data.bufferImg],
+    })
+  },
+  creatCode:async function(){
+    var that = this;
+    var jielongpath;
+    if (this.data.type == 1) {
+      jielongpath = 'pages/jldetail/jldetail?id=' + this.data.id;
+    }
+    if (this.data.type == 2) {
+      jielongpath = 'pages/tablefill/tablefill?id=' + this.data.id;
+    }
+    if (this.data.type == 3) {
+      jielongpath = 'pages/toupiaodetail/toupiaodetail?id=' + this.data.id;
+    }
+    wx.cloud.callFunction({
+      name: 'creatcode',
+      data: {
+        scene:'id='+that.data.id,
+        page: 'pages/fabu/fabu'
+      }
+    }).then(res => {
+      console.log(res)
+      console.log(res.result)
+      console.log(res.result.buffer)
+    }).catch(
+      console.error
+    )
+
+    // await api.showLoading();
+    // var loginres = await api.getData(api.webapi.isLogin);
+    // await api.hideLoading();
+    // if (api.reshook(loginres, this.route)){
+    //   console.log(loginres.data.accessToken);
+    //   var codeImgapi = 'https://api.weixin.qq.com/wxa/getwxacodeunlimit?access_token=' + loginres.data.accessToken;
+    //   var param = {
+    //     scene: 123
+    //   }
+    //   await api.showLoading();
+    //   var codeImgres = await api.postDataWx(codeImgapi,param);
+    //   await api.hideLoading();
+    //   console.log(codeImgres)
+    //   this.setData({
+    //     towCode: wx.arrayBufferToBase64(codeImgres.data)
+    //   })
+    //   // wx.setStorage({
+    //   //   key: "accessToken",
+    //   //   data: "value"
+    //   // })
+    // }
+
+
   },
   /**
    * 生命周期函数--监听页面初次渲染完成
