@@ -1,6 +1,6 @@
 // var version = 'v1_1/';
 var webhost = "https://develop.vsclouds.com/jielong/";
-// var webhost = 'https://jielongtest.vsclouds.com/jielong/';
+//  var webhost = 'https://jielongtest.vsclouds.com/jielong/';
 var webapi = {
   // 创建接龙
   newjielong: webhost + "solitaire/create",

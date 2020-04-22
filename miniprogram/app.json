@@ -34,7 +34,8 @@
     "component/addprogram/addprogram",
     "component/jlstate/jlstate",
     "component/share/share",
-    "pages/sharecreat/sharecreat"
+    "pages/sharecreat/sharecreat",
+    "component/checkin/checkin"
   ],
   "window": {
     "backgroundColor": "#f4f4f4",

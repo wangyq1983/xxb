@@ -3,6 +3,7 @@
     "editorbox": "/component/editorbox/editorbox",
     "nodata":"/component/nodata/nodata",
     "jlstate": "/component/jlstate/jlstate",
-    "shareCom": "/component/share/share"
+    "shareCom": "/component/share/share",
+    "checkin": "/component/checkin/checkin"
   }
 }

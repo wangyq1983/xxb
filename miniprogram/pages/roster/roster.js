@@ -1,3 +1,5 @@
+const app = getApp();
+const api = app.globalData.api;
 // pages/roster/roster.js
 Page({
 
@@ -5,9 +7,11 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    isEmpty: 0,
+    memberlist:[]
   },
   uploadexcel:function(){
+    var that = this;
     wx.chooseMessageFile({
       count: 1,
       type:'file',
@@ -15,15 +19,25 @@ Page({
         const tempFilePaths = res.tempFiles;
         console.log(tempFilePaths)
         wx.uploadFile({
-          url: 'https://example.weixin.qq.com/upload', //仅为示例，非真实的接口地址
-          filePath: tempFilePaths,
+          url: api.webapi.excelUpload, //仅为示例，非真实的接口地址
+          filePath: tempFilePaths[0].path,
           name: 'file',
-          formData: {
-            'user': 'test'
+          header: {
+            // 'content-type': 'application/x-www-form-urlencoded' // 默认值
+            "content-type": "application/json",
+            token: wx.getStorageSync("token")
           },
+          // formData: {
+          //   file: tempFilePaths[0]
+          // },
           success(res) {
-            const data = res.data
+            console.log(res)
+            const data = res.data;
+            that.onLoad();
             //do something
+          },
+          fail(res){
+            console.log(res)
           }
         })
       }
@@ -33,9 +47,30 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    this.init();
   },
-
+  async init(){
+    await api.showLoading() // 显示loading
+    var memberlist = await api.getData(api.webapi.memberlist);
+    await api.hideLoading() // 等待请求数据成功后，隐藏loading
+    if (api.reshook(memberlist, this.route)) {
+      this.renderList(memberlist)
+    }
+  },    
+  renderList:function(res){
+    console.log(res);
+    if (res.data.length == 0) {
+      this.setData({
+        isEmpty: 1,
+        memberlist: res.data
+      })
+    } else {
+      this.setData({
+        isEmpty: 0,
+        memberlist: res.data
+      })
+    }
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

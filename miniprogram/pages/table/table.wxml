@@ -69,7 +69,7 @@
         </picker>
       </view>
     </view>
-    <view class="isMustFill" style="border-top:30rpx solid #f4f4f4">
+    <view class="isMustFill" style="border-top:30rpx solid #f4f4f4;">
       <view>填表结果所有人可见</view>
       <switch checked="{{allsee}}" bindchange="changeallsee" name="alllook" />
     </view>

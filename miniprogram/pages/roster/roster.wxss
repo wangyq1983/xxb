@@ -7,3 +7,36 @@
   margin:50rpx auto;
   color:#999;
 }
+.rtag{
+  width:650rpx;
+  padding:20rpx;
+  margin:0 30rpx;
+  color:#999;
+  font-size: 28rpx;
+  line-height: 50rpx;
+}
+
+.rtitle{
+  width:550rpx;
+  height:80rpx;
+  line-height: 80rpx;
+  text-align: center
+}
+.rcon{
+  width:550rpx;
+  padding:20rpx 100rpx;
+  border-top:15rpx solid #dedede
+}
+.ritem{
+  width:550rpx;
+  height:60rpx;
+  line-height: 60rpx;
+  font-size: 28rpx;
+  color:#333; 
+  border-bottom:1rpx solid #d4d4d4
+}
+.fontbold{
+  font-weight: bold;
+  color:#000;
+  
+}

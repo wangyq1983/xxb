@@ -1,3 +1,17 @@
 <!--pages/roster/roster.wxml-->
-<view bindtap="uploadexcel" class="rosterBtn">上传表格</view>
+<view>
+  <view bindtap="uploadexcel" class="rosterBtn">上传表格</view>
+  <view class="rtag">
+    请上传扩展名为 <text class="fontbold">.xlsx格式</text>的表格文件，且每次只能上传一个文件
+  </view>
+  <view class="memberlist" wx:if = "{{memberlist}}" class="rcon">
+    <view class="rtitle">
+      名册
+    </view>
+    <view wx:for = "{{memberlist}}" wx:key="memberlist" class="ritem">
+      {{item.memberName}}
+    </view>
+  </view>
+</view>
+
 

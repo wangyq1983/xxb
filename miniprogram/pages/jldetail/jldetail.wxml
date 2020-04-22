@@ -21,8 +21,9 @@
         {{content}}
       </text>
     </view>
-    <view style="color:#aaaaaa; font-size:24rpx; margin-top:10rpx;">
-      结束时间：{{jielong.endDate}}
+    <view class="timeAndCheck">
+      <view class="timeOverStyle">结束时间：{{jielong.endDate}}</view>
+      <checkin cid="{{id}}" type ="1" count = "{{jielong.statisticsList.length}}"></checkin>
     </view>
   </view>
   <editorbox isedit="{{jielong.editable}}" eid="{{id}}" type="1" listLength = "{{jielong.statisticsTotal}}"></editorbox>

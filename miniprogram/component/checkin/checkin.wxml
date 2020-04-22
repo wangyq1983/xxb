@@ -1,0 +1,24 @@
+<view>
+  <view bindtap="checklist" class="checklist">
+    <view class="checkicon checkicon2"></view>
+    <view class="checktext checktext2">看看谁没交？</view>
+  </view>
+</view>
+<view class="eventBg" wx:if = "{{nosubshow}}">
+  <view class="nosubList">
+    <view class="closeBtn" bindtap="closeEvent">
+      <view class="closedbg closeSize"></view>
+    </view>
+    <view class="notitle">
+      <view class="notitle1">未交人员名单</view>
+    </view>
+    <view class="nocon">
+      <scroll-view style="width:450rpx; max-height:450rpx" scroll-y="true">
+        {{nosubcon}}
+      </scroll-view>
+    </view>
+    <view class="btnbox">
+      <view class="btnCopy" bindtap="copyEvent">复制名单</view>
+    </view>
+  </view>
+</view>

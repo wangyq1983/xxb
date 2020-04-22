@@ -1,3 +1,5 @@
 {
-  "usingComponents": {}
+  "usingComponents": {
+    "nodata": "/component/nodata/nodata"
+  }
 }
