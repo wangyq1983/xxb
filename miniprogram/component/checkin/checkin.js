@@ -72,11 +72,17 @@ Component({
         return jielongArr;
       }
       if(type == 2){
+        var param = {
+          id:id
+        }
+        var jldetail = await api.getData(api.webapi.jielongdetailbase, param);
+        console.log(jldetail);
+        var jlcount = jldetail.data.total;
         var params = {
           solitaireId: id,
           order: 'desc',
           from: 1,
-          count: count
+          count: jlcount
         };
         var jllist = await api.getData(api.webapi.jielongstatistics, params);
         console.log(jllist);
@@ -134,36 +140,52 @@ Component({
       await api.hideLoading() // 等待请求数据成功后，隐藏loading
       console.log(jlres);
       console.log(memres);
-      var nosublist = []
-      for(var i = 0,len = memres.length; i<len; i++){
-        for(var j = 0,len1 = jlres.length; j<len1; j++){
-          if(memres[i] == jlres[j]){
-            break;
-          }else{
-            if(j == len1 -1){
-              nosublist.push(memres[i])
+      if(jlres.length > 0){
+        if (memres.length > 0) {
+          var nosublist = []
+          for (var i = 0, len = memres.length; i < len; i++) {
+            for (var j = 0, len1 = jlres.length; j < len1; j++) {
+              if (memres[i] == jlres[j]) {
+                break;
+              } else {
+                if (j == len1 - 1) {
+                  nosublist.push(memres[i])
+                }
+              }
             }
+            // memres[i]
           }
-        }
-        // memres[i]
-      }
-      console.log(nosublist);
-      console.log(nosublist.join(','));
-      if(nosublist.length == 0){
-        // 没有未提交人员,所有人都交了
-        wx.showToast({
-          title: '所有人都提交了',
-          icon:'none',
-          duration:3000
-        })
-      }else{
-        // 有未交人员
-        this.setData({
-          nosubshow:true,
-          nosubcon: nosublist.join(',')
-        })
+          console.log(nosublist);
+          console.log(nosublist.join(','));
+          if (nosublist.length == 0) {
+            // 没有未提交人员,所有人都交了
+            wx.showToast({
+              title: '所有人都提交了',
+              icon: 'none',
+              duration: 3000
+            })
+          } else {
+            // 有未交人员
+            this.setData({
+              nosubshow: true,
+              nosubcon: nosublist.join(',')
+            })
 
+          }
+        } else {
+          wx.navigateTo({
+            url: '/pages/roster/roster',
+          })
+        }   
+      }else{
+        wx.showToast({
+          title: '现在还未有人提交',
+          icon:'none',
+          duration:2000
+        })
       }
+      
+      
     }
   }
 })

@@ -109,6 +109,11 @@ Page({
       url: '/pages/toupiao/toupiao',
     })
   },
+  gotohelp:function(){
+    wx.navigateTo({
+      url: '/pages/jlhelp/jlhelp',
+    })
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

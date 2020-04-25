@@ -54,3 +54,11 @@
   justify-content: center;
   align-items: center
 }
+.helperStyle{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  color:#2e79fa;
+  margin-top:30rpx;
+}

@@ -35,6 +35,7 @@
     "component/jlstate/jlstate",
     "component/share/share",
     "pages/sharecreat/sharecreat",
+    "pages/jlhelp/jlhelp",
     "component/checkin/checkin"
   ],
   "window": {

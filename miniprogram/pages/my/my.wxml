@@ -60,6 +60,10 @@
         <text class='myTxt2'>我的名册</text>
         <image src='/images/arrowright.png' class='myArrow'></image>
     </view>
+    <view class='myItem2' bindtap='jielonghelp'>
+        <text class='myTxt2'>使用帮助</text>
+        <image src='/images/arrowright.png' class='myArrow'></image>
+    </view>
     <view class='myItem2' bindtap='followpublic'>
         <text class='myTxt2'>关注我们</text>
         <image src='/images/arrowright.png' class='myArrow'></image>

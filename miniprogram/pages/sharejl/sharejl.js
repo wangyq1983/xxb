@@ -1,3 +1,4 @@
+
 // pages/sharejl/sharejl.js
 const app = getApp();
 const api = app.globalData.api;

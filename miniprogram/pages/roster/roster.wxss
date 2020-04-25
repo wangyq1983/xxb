@@ -20,7 +20,21 @@
   width:550rpx;
   height:80rpx;
   line-height: 80rpx;
-  text-align: center
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom:6rpx solid #7691fc;
+}
+.clearlist{
+  width:150rpx;
+  height:50rpx;
+  line-height: 50rpx;
+  text-align: center;
+  background: #7691fc;
+  color:#fff;
+  font-size: 28rpx;
+  border-radius: 6rpx;
 }
 .rcon{
   width:550rpx;

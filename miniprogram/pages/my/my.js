@@ -83,7 +83,11 @@ Page({
             url: '/pages/followpublic/followpublic',
         })
     },
-    
+  jielonghelp:function(){
+    wx.navigateTo({
+      url: '/pages/jlhelp/jlhelp',
+    })
+  },
     async getIsLogin(){
       // 判断是否登录，token是否过期
       var params;

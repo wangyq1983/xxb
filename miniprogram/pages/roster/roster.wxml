@@ -1,12 +1,19 @@
 <!--pages/roster/roster.wxml-->
 <view>
+  
   <view bindtap="uploadexcel" class="rosterBtn">上传表格</view>
   <view class="rtag">
+    您现在还没有上传名册,
     请上传扩展名为 <text class="fontbold">.xlsx格式</text>的表格文件，且每次只能上传一个文件
   </view>
-  <view class="memberlist" wx:if = "{{memberlist}}" class="rcon">
+  <view class="rtag">
+    <view>格式说明:姓名置于第一列，且此表格仅有姓名一列</view>
+    <image src="/images/shili.png" style="width:300rpx; height:270rpx;"></image>
+  </view>
+  <view class="memberlist" wx:if = "{{memberlist.length>0}}" class="rcon">
     <view class="rtitle">
-      名册
+      <view style="padding-left:10rpx;">名册</view>
+      <view class="clearlist" bindtap="clearList">清空名册</view>
     </view>
     <view wx:for = "{{memberlist}}" wx:key="memberlist" class="ritem">
       {{item.memberName}}

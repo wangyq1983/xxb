@@ -71,6 +71,31 @@ Page({
       })
     }
   },
+  async clearList(){
+    var that = this;
+    wx.showModal({
+      title: '提示',
+      content: '您确定要清空名册吗？',
+      async success(res) {
+        if (res.confirm) {
+          var clearArr = that.data.memberlist.map(x=>x.id);
+          console.log(clearArr)
+          var params = {
+            idList:clearArr
+          }
+          await api.showLoading() // 显示loading
+          var clearres = await api.postData(api.webapi.memberdel,params);
+          await api.hideLoading(); // 等待请求数据成功后，隐藏loading
+          console.log(clearres)
+          that.setData({
+            memberlist:[]
+          })
+        } else if (res.cancel) {
+          
+        }
+      }
+    })
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

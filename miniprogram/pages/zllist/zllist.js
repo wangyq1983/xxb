@@ -1,4 +1,5 @@
 const db = wx.cloud.database();
+
 Page({
 
   /**
@@ -28,24 +29,52 @@ Page({
     wx.showLoading({
       title: "加载中"
     });
-    db.collection('dataList').where({
-      sid: decodeURIComponent(options.sid)
-    }).orderBy('ordernum', 'asc').get().then(data => {
-      console.log(data);
+    wx.cloud.callFunction({
+      name: 'datashow',
+      data: {
+        sid: decodeURIComponent(options.sid)
+      }
+      }).then(res => {
+      console.log(res.result.data);
       wx.hideLoading();
-      if (data.data.length == 0) {
+      if (res.result.data == 0) {
         this.setData({
           isEmpty: 1,
-          audioList: data.data
+          audioList: res.result.data
         })
       } else {
         this.setData({
           isEmpty: 0,
-          audioList: data.data
+          audioList: res.result.data
         })
       }
-    })
+    }).catch(
+      console.error
+    )
+    
+
+    // db.collection('dataList').where({
+    //   sid: decodeURIComponent(options.sid)
+    // }).orderBy('ordernum', 'asc').get().then(data => {
+    //   console.log(data);
+    //   wx.hideLoading();
+    //   if (data.data.length == 0) {
+    //     this.setData({
+    //       isEmpty: 1,
+    //       audioList: data.data
+    //     })
+    //   } else {
+    //     this.setData({
+    //       isEmpty: 0,
+    //       audioList: data.data
+    //     })
+    //   }
+    // })
+
+
+
   },
+   
   gotoaudio: function (e) {
     console.log(e.currentTarget.dataset.fid);
     var type = e.currentTarget.dataset.type;
