@@ -26,14 +26,17 @@ Page({
     idx: '',
     itemParams: {},
     toupiaoOption:[],
-    date: api.getDate(),
-    time: api.getTimes()
+    filelist:[]
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    this.setData({
+      date: api.getDate(),
+      time: api.getTimes()
+    })
     wx.setStorage({
       key: "shared",
       data: "0"
@@ -63,6 +66,7 @@ Page({
       this.setData({
         title: toupiaodetail.data.title,
         content: toupiaodetail.data.content,
+        filelist: toupiaodetail.data.filelist?toupiaodetail.data.filelist:[],
         optionType:toupiaodetail.data.config.key3.optionType,
         selectOption: toupiaodetail.data.config.key3.options,
         date: api.getDate(toupiaodetail.data.endDate),
@@ -100,8 +104,9 @@ Page({
       }
       return false
     };
-
+    var addfile = this.selectComponent("#imgupbox").data.imgUrl
     if (this.data.btnTxt == '发布投票') {
+      
       if (e.detail.value.title == '' || checkOption(this.data.selectOption)) {
         wx.showToast({
           title: '必填项不可为空',
@@ -125,6 +130,7 @@ Page({
         var param = {
           title: e.detail.value.title,
           content: e.detail.value.content,
+          filelist:addfile,
           type: 3,
           config: {
             key3: {
@@ -150,6 +156,7 @@ Page({
           id: this.data.id,
           title: e.detail.value.title,
           content: e.detail.value.content,
+          filelist:addfile,
           type: 3,
           config: {
             key3: {

@@ -15,8 +15,7 @@ Page({
     id:'',
     btnTxt:'发布表格',
     allsee: true,
-    date: api.getDate(),
-    time: api.getTimes()
+    filelist:[]
   },
 
   /**
@@ -24,6 +23,10 @@ Page({
    */
   
   onLoad: function (options) {
+    this.setData({
+      date: api.getDate(),
+      time: api.getTimes()
+    })
     wx.setStorage({
       key: "shared",
       data: "0"
@@ -53,6 +56,7 @@ Page({
       this.setData({
         title: tabledetail.data.title,
         content: tabledetail.data.content,
+        filelist:tabledetail.data.filelist?tabledetail.data.filelist:[],
         paramsList:tabledetail.data.config.key2.itemList,
         allsee: (tabledetail.data.allVisible == undefined) ? true:tabledetail.data.allVisible,
         date: api.getDate(tabledetail.data.endDate),
@@ -74,6 +78,7 @@ Page({
     })
   },
   creatJieLong:function(e){
+    var addfile = this.selectComponent("#imgupbox").data.imgUrl
     if (this.data.btnTxt == '发布表格'){
       if (e.detail.value.title == '' || this.data.paramsList.length == 0) {
         wx.showToast({
@@ -91,6 +96,7 @@ Page({
               var param = {
                 title: e.detail.value.title,
                 content: e.detail.value.content,
+                filelist:addfile,
                 allVisible:that.data.allsee,
                 type: 2,
                 config: {
@@ -128,6 +134,7 @@ Page({
                 id:that.data.id,
                 title: e.detail.value.title,
                 content: e.detail.value.content,
+                filelist:addfile,
                 allVisible: that.data.allsee,
                 type: 2,
                 config: {

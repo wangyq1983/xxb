@@ -270,18 +270,27 @@ const encodeData = (datadetail) =>{
   }).join("&");
   return dataparams
 }
+
 const getDate = (endtime) =>{
   if (endtime) {
     // 编辑模式下，有传入的endtime
     var newdate = endtime.split(" ")[0];
     return newdate;
   } else {
-    var year = date.getFullYear()
-    var month = date.getMonth() + 1
-    var day = date.getDate() + 7
+
+    var timediff = 60 * 60 * 24 * 7 * 1000; 
+    var timestamp = new Date().getTime();
+    var newtime = timediff + timestamp;
+    console.log(newtime);
+    var date1 = new Date(newtime);
+    console.log(date1)
+    var year = date1.getFullYear();
+    var month = date1.getMonth() + 1;
+    var day = date1.getDate();
     return [year, month, day].map(formatNumber).join('-')
   }
 }
+
 const getTimes = (endtime) =>{
   if(endtime){
     var newtime = endtime.split(" ")[1];
@@ -289,9 +298,12 @@ const getTimes = (endtime) =>{
     return newtime1;
     // 编辑模式下，有传入的endtime
   }else{
-    var hour = date.getHours()
-    var minute = date.getMinutes()
-    var second = date.getSeconds()
+    var timestamp = new Date().getTime();
+    var date1 = new Date(timestamp);
+    var hour = date1.getHours()
+    var minute = date1.getMinutes()
+    var second = date1.getSeconds()
+    console.log([hour, minute].map(formatNumber).join(':'))
     return [hour, minute].map(formatNumber).join(':')
   }
   

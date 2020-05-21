@@ -10,6 +10,7 @@
   justify-items: center;
   align-items: center;
   border-top:1rpx solid #e4e6e5;
+  background: #fff
 }
 .jielongButton{
   width:542rpx;

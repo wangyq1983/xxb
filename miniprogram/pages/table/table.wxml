@@ -7,6 +7,7 @@
       <view class="tableborder">
         <textarea style="height:144rpx;line-height:48rpx;" bindblur="bindTextAreaBlur" placeholder="收集表内容(选填)" class="textareaBox" name="content" value="{{content}}" />
       </view>
+      <imgupload id = "imgupbox" filelist ="{{filelist}}"></imgupload>
       <view wx:for="{{paramsList}}" wx:key="paramsList" class="paramslist warpItem" wx:for-index="idx">
         <view wx:if="{{item.itemType == 'input'}}" data-con='{{item}}' bindtap="enterAdd" data-index='{{idx}}'>
           <view class="titleFont">

@@ -73,21 +73,21 @@ Page({
             url: '/pages/jllistcy/jllistcy',
         })
     },
-  enterRoster:function(){
-    wx.navigateTo({
-      url: '/pages/roster/roster',
-    })
-  },
+    enterRoster:function(){
+      wx.navigateTo({
+        url: '/pages/roster/roster',
+      })
+    },
     followpublic:function(){
         wx.navigateTo({
             url: '/pages/followpublic/followpublic',
         })
     },
-  jielonghelp:function(){
-    wx.navigateTo({
-      url: '/pages/jlhelp/jlhelp',
-    })
-  },
+    jielonghelp:function(){
+      wx.navigateTo({
+        url: '/pages/jlhelp/jlhelp',
+      })
+    },
     async getIsLogin(){
       // 判断是否登录，token是否过期
       var params;
@@ -122,8 +122,66 @@ Page({
         // Do something when catch error
       }
     },
-
+  handleContact(e) {
+    console.log(e.detail.path)
+    console.log(e.detail.query)
+  },
+  pushkefu:function(){
+    wx.cloud.callFunction({
+      name: "push0524",
+      success(res) {
+        console.log(res)
+      },
+      fail(res) {
+        console.log(res)
+      }
+    })
+  },
+  allsend:function(){
+    wx.requestSubscribeMessage({
+      tmplIds: ['i8A5fKcXMFnNHWfAOaImmkoW_poZTf4ansJhr9ezrio'],
+      success(res) {
+        console.log(res);
+        wx.cloud.callFunction({
+          name: "sendall",
+          success(res) {
+            console.log(res)
+          },
+          fail(res) {
+            console.log(res)
+          }
+        })
+      }
+    })
     
+  },
+
+    // getFormid:function(event){
+    //   this.setData({
+    //     formid:event.detail.formId
+    //   });
+    //   wx.showToast({
+    //     title: event.detail.formId,
+    //     icon: 'none',
+    //     duration: 1000
+    //   })
+    // },
+
+    // sendMsg(){
+    //   let  fromid = this.data.formid;
+    //   wx.cloud.callFunction({
+    //     name:"push0524",
+    //     data:{
+    //       formId:fromid
+    //     },
+    //     success(res){
+    //       console.log('成功'+res)
+    //     },
+    //     fail(res){
+    //       console.log('失败'+res)
+    //     }
+    //   })
+    // },
     
     /**
      * 生命周期函数--监听页面初次渲染完成

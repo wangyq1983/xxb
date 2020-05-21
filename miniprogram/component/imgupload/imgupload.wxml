@@ -1,0 +1,10 @@
+<!--component/imgupload/imgupload.wxml-->
+<view class="imgBox">
+  <view class="imglist">
+    <view class="imgItem" wx:for="{{imgUrl}}" wx:key="imgUrl">
+      <view class="imgclose" data-fileid = "{{item}}" bindtap="delfileid">×</view>
+      <image src="{{item}}" mode="aspectFit" wx:if="{{imgUrl}}" class="imgsize"></image>
+    </view>
+  </view>
+  <view class="upicon" bindtap="imgaction"></view>
+</view>

@@ -7,7 +7,8 @@
   <view style="margin-bottom:180rpx">
     <textarea placeholder="内容(选填)" class="textareaBox" name="content" value="{{content}}" />
   </view>
-  <view class="isMustFill" style="border-top:30rpx solid #f4f4f4">
+  <imgupload id = "imgupbox" filelist ="{{filelist}}"></imgupload>
+  <view class="isMustFill" style="border-top:30rpx solid #f4f4f4; margin-bottom:180rpx;">
       <view>有效期</view>
       <view class = "datetime">
         <picker mode="date" value="{{date}}" start="1900-01-01" end="2100-12-31" bindchange="bindDateChange" style="margin-right:20rpx;">

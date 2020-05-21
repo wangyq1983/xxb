@@ -46,6 +46,9 @@
   font-size: 28rpx;
   padding-top:30rpx;
 }
+.jlimg{
+  
+}
 .toolBar{
   width:100%;
   height:112rpx;

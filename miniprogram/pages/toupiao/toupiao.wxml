@@ -6,8 +6,9 @@
       </view>
       <view class="tableborder">
         <textarea style="height:144rpx;line-height:48rpx;" bindblur="bindTextAreaBlur" placeholder="投票内容(选填)" class="textareaBox" name="content" value="{{content}}" />
+        <imgupload id = "imgupbox" filelist ="{{filelist}}"></imgupload>
       </view>
-
+      
       <view class="typeItem">
     <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
     <view class="picker">

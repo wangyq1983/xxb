@@ -21,6 +21,12 @@
         {{content}}
       </text>
     </view>
+    <view class="jlimg">
+      <view bindtap="previmgEvent" data-url="{{item}}" class="showimgview" wx:if = "{{jielong.filelist.length > 0}}" wx:for = "{{jielong.filelist}}" wx:key = "jielong.filelist">
+        <image mode="aspectFit" src="{{item}}" class="showimgsize"></image>
+        <view class="showimgicon"></view>
+      </view>
+    </view>
     <view class="timeAndCheck">
       <view class="timeOverStyle">结束时间：{{jielong.endDate}}</view>
       <checkin cid="{{id}}" type ="1" count = "{{jielong.statisticsList.length}}"></checkin>

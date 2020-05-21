@@ -1,4 +1,3 @@
-<!--pages/my/my.wxml-->
 <view>
   <view class='userBg'>
     <image src='/images/my_bg.png' style='width:100%;height:268rpx;'></image>
@@ -17,7 +16,6 @@
     <view class='userName' wx:if="{{!isLogin}}" bindtap='gotoLogin'>
       登录/注册 >
     </view>
-
     <view wx:if="{{isLogin}}">
       <view wx:if="{{bindwx == '1'}}">
       <button wx:if="{{canIUse}}" open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo" class='bindwx'>
@@ -28,10 +26,6 @@
         已绑定
     </view>
     </view>
-
-
-    
-    
     <!-- <view bindtap='logout'>退出</view> -->
   </view>
   
@@ -60,7 +54,7 @@
         <text class='myTxt2'>我的名册</text>
         <image src='/images/arrowright.png' class='myArrow'></image>
     </view>
-    <view class='myItem2' bindtap='jielonghelp'>
+    <view class='myItem2' bindtap='jiel onghelp'>
         <text class='myTxt2'>使用帮助</text>
         <image src='/images/arrowright.png' class='myArrow'></image>
     </view>
@@ -68,7 +62,30 @@
         <text class='myTxt2'>关注我们</text>
         <image src='/images/arrowright.png' class='myArrow'></image>
     </view>
-    
+    <view class='myItem2'>
+        <button open-type="contact" bindcontact="handleContact">客服消息</button>
+    </view>
+    <view bindtap="pushkefu" class='myItem2'>
+       <text class='myTxt2'>客服消息测试</text>
+       
+       <image src='/images/arrowright.png' class='myArrow'></image>
+    </view>
+    <view bindtap="allsend" class='myItem2'>
+       <text class='myTxt2'>统一服务消息测试</text>
+       
+       <image src='/images/arrowright.png' class='myArrow'></image>
+    </view>
+    <!-- <form report-submit="true" bindsubmit="getFormid">
+        <button form-type="submit" style="width:60%">统一服务消息测试</button>
+      </form>
+      <text>formid:{{formid}}</text> -->
+    <!-- <view>
+      <form report-submit="true" bindsubmit="getFormid">
+        <button form-type="submit" style="width:60%">获取formid</button>
+      </form>
+      <text>formid:{{formid}}</text>
+      <button bindtap="sendMsg" style="width:60%">云开发发送模板消息</button>
+    </view> -->
   </view>
 
   <!-- 需要使用 button 来授权登录 -->

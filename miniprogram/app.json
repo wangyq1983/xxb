@@ -36,7 +36,8 @@
     "component/share/share",
     "pages/sharecreat/sharecreat",
     "pages/jlhelp/jlhelp",
-    "component/checkin/checkin"
+    "component/checkin/checkin",
+    "component/imgupload/imgupload"
   ],
   "window": {
     "backgroundColor": "#f4f4f4",

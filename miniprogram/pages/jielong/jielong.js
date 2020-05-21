@@ -13,8 +13,7 @@ Page({
     content:'',
     type:1,
     btnTxt:'新建接龙',
-    date: api.getDate(),
-    time: api.getTimes()
+    filelist:[]
   },
 
   /**
@@ -23,6 +22,10 @@ Page({
   onLoad: function (options) {
     console.log('=============');
     console.log(options);
+    this.setData({
+      date: api.getDate(),
+      time: api.getTimes()
+    })
     wx.setStorage({
       key: "shared",
       data: "0"
@@ -57,7 +60,8 @@ Page({
         title: jldetail.data.title,
         content: jldetail.data.content,
         date: api.getDate(jldetail.data.endDate),
-        time: api.getTimes(jldetail.data.endDate)
+        time: api.getTimes(jldetail.data.endDate),
+        filelist:jldetail.data.filelist?jldetail.data.filelist:[]
       })
     }
   },
@@ -83,6 +87,8 @@ Page({
     })
   },
   creatJieLong:function(e){
+    var addfile = this.selectComponent("#imgupbox").data.imgUrl
+    console.log(addfile)
     console.log(e.detail.value.alllook) // 是否所有人可见
     if (this.data.btnTxt == '新建接龙' || this.data.btnTxt == '复制接龙'){
       if(e.detail.value.title == ''){
@@ -100,6 +106,7 @@ Page({
               var param = {
                 title: e.detail.value.title,
                 content: e.detail.value.content,
+                filelist:addfile,
                 type: 1,
                 config: {
                   "key1": {
@@ -135,6 +142,7 @@ Page({
                 id: that.data.id,
                 title: e.detail.value.title,
                 content: e.detail.value.content,
+                filelist:addfile,
                 type: 1,
                 config: {
                   "key1": {

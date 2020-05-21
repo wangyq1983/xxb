@@ -128,7 +128,15 @@ Page({
       }
     })
     // console.log(e.currentTarget.dataset.id);
-
+  },
+  // 放大后展示图片
+  previmgEvent:function(e){
+    var cururl = e.currentTarget.dataset.url;
+    var that = this;
+    wx.previewImage({
+      current:cururl,
+      urls: that.data.jielong.filelist
+    })
   },
   cyJielong:function(e){
     console.log(e.detail.value.name);
