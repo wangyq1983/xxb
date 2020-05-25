@@ -21,11 +21,12 @@
 			"disablePlugins": [],
 			"outputPath": ""
 		},
-		"useCompilerModule": false
+		"useCompilerModule": false,
+		"userConfirmedUseCompilerModuleSwitch": false
 	},
 	"appid": "wx7ac10166077abf72",
 	"projectname": "%E5%AD%A6%E5%B0%8F%E5%B8%AE",
-	"libVersion": "2.10.3",
+	"libVersion": "2.11.0",
 	"simulatorType": "wechat",
 	"simulatorPluginLibVersion": {},
 	"condition": {
@@ -131,6 +132,13 @@
 					"id": -1,
 					"name": "pages/jielong/jielong",
 					"pathName": "pages/jielong/jielong",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/sharejl/sharejl",
+					"pathName": "pages/sharejl/sharejl",
 					"scene": null
 				}
 			]

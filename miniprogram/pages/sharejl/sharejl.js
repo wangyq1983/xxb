@@ -47,7 +47,6 @@ Page({
     }
     console.log(this.data.type);
     console.log(jielongpath);
-
     wx.showLoading({
       title: '生成中...'
     });
@@ -103,7 +102,6 @@ Page({
     }).catch(
       console.error
     )
-
     // await api.showLoading();
     // var loginres = await api.getData(api.webapi.isLogin);
     // await api.hideLoading();
@@ -125,8 +123,23 @@ Page({
     //   //   data: "value"
     //   // })
     // }
-
-
+  },
+  enterjielong:function(){
+    if(this.data.type == 1){
+      wx.navigateTo({
+        url: '/pages/jldetail/jldetail?id='+this.data.id
+      })
+    }
+    if(this.data.type == 2){
+      wx.navigateTo({
+        url: '/pages/tablefill/tablefill?id='+this.data.id,
+      })
+    }
+    if(this.data.type == 3){
+      wx.navigateTo({
+        url: '/pages/toupiaodetail/toupiaodetail?id='+this.data.id,
+      })
+    }
   },
   /**
    * 生命周期函数--监听页面初次渲染完成

@@ -26,3 +26,12 @@ page{
   justify-content: center;
   align-items: center
 }
+.enterjl{
+  width:278rpx;
+  height: 88rpx;
+  line-height: 88rpx;
+  text-align: center;
+  background: #f98723;
+  color: #fff;
+  border-radius: 10rpx;
+}

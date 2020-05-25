@@ -51,6 +51,11 @@ Page({
   onReady: function () {
 
   },
+  gotomy:function(){
+    wx.switchTab({
+      url: '/pages/my/my',
+    })
+  },
   gotoDetail: function (e) {
     console.log(e.currentTarget.dataset.id);
     wx.navigateTo({

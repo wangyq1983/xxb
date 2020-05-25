@@ -82,5 +82,9 @@
   ],
   "networkTimeout": {
     "request": 12000
+  },
+  "useExtendedLib": {
+    "kbone": true,
+    "weui": true
   }
 }

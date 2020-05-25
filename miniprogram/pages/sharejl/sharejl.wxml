@@ -7,6 +7,9 @@
     <button open-type="share">发送到微信群</button>
   </view>
   <view style="margin-top:80rpx;">
+    <view bindtap="enterjielong" class="enterjl">进入此接龙</view>
+  </view>
+  <view style="margin-top:80rpx;">
     <view class="create" bindtap="cloudtest">生成小程序码</view>
   </view>
   <view class="teststyle" style="margin-top:30rpx;">

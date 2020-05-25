@@ -14,12 +14,20 @@ Page({
    */
   data: {
     list: [],
-    isEmpty:0,
-    isEnd:false,
-    dataStep:20,
-    curId:''
-  },
+    isEmpty: 0,
+    isEnd: false,
+    dataStep: 20,
+    curId: '',
+    slideButtons: [{
+      type: 'warn',
+      text: '删除',
+      extClass: 'test'
+    }],
 
+  },
+  slideButtonTap(e) {
+    console.log('slide button tap', e.detail)
+  },
   /**
    * 生命周期函数--监听页面加载
    */
@@ -28,44 +36,44 @@ Page({
   },
 
   // 初始化
-  async init (){
+  async init() {
     var params = {
-      from:1,
-      count:this.data.dataStep
+      from: 1,
+      count: this.data.dataStep
     }
     await api.showLoading() // 显示loading
-    var cjlist = await api.getData(api.webapi.jielonglist,params);
+    var cjlist = await api.getData(api.webapi.jielonglist, params);
     await api.hideLoading() // 等待请求数据成功后，隐藏loading
-    if(api.reshook(cjlist,this.route)){
+    if (api.reshook(cjlist, this.route)) {
       this.renderList(cjlist)
     }
   },
-  async delafterList(){
+  async delafterList() {
     var params = {
-      from:1,
-      count:this.data.dataStep
+      from: 1,
+      count: this.data.dataStep
     }
     await api.showLoading() // 显示loading
-    var cjlist = await api.getData(api.webapi.jielonglist,params);
+    var cjlist = await api.getData(api.webapi.jielonglist, params);
     await api.hideLoading() // 等待请求数据成功后，隐藏loading
-    if(api.reshook(cjlist,this.route)){
+    if (api.reshook(cjlist, this.route)) {
       this.setData({
-        list:cjlist.data,
-        isEmpty:0,
-        isEnd:false
+        list: cjlist.data,
+        isEmpty: 0,
+        isEnd: false
       })
     }
   },
-  renderList(res){
-    if(res.data.length == 0){
+  renderList(res) {
+    if (res.data.length == 0) {
       this.setData({
-        isEmpty:1,
+        isEmpty: 1,
         list: res.data
       })
-    }else{
+    } else {
       this.setData({
-        isEmpty:0,
-        isEnd:(res.data.length < this.data.dataStep) ? true : false,
+        isEmpty: 0,
+        isEnd: (res.data.length < this.data.dataStep) ? true : false,
         list: (this.data.list.length == 0) ? res.data : this.data.list.concat(res.data)
       })
     }
@@ -74,9 +82,14 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-    
+
   },
-  async delevent(e){
+  gotomy: function () {
+    wx.switchTab({
+      url: '/pages/my/my',
+    })
+  },
+  async delevent(e) {
     console.log(e.currentTarget.dataset.id);
     var that = this;
     wx.showModal({
@@ -89,19 +102,19 @@ Page({
             id: e.currentTarget.dataset.id
           }
           await api.showLoading() // 显示loading
-          var delres = await api.postData(api.webapi.jielongdelete,params);
+          var delres = await api.postData(api.webapi.jielongdelete, params);
           await api.hideLoading() // 等待请求数据成功后，隐藏loading
-          if(api.reshook(delres,that.route)){
+          if (api.reshook(delres, that.route)) {
             that.delafterList()
           }
-          
+
         } else if (res.cancel) {
           console.log('用户点击取消')
         }
       }
     })
   },
-  deleteSuccess:function(){
+  deleteSuccess: function () {
     this.onLoad();
   },
   gotoDetail: function (e) {
@@ -116,7 +129,7 @@ Page({
     })
   },
 
-  gotoToupiaoDetail:function(e){
+  gotoToupiaoDetail: function (e) {
     wx.navigateTo({
       url: '/pages/toupiaodetail/toupiaodetail?id=' + e.currentTarget.dataset.id,
     })
@@ -161,7 +174,7 @@ Page({
         // console.log("左滑页面");
         console.log(e.currentTarget.dataset.id);
         this.setData({
-          curId:e.currentTarget.dataset.id
+          curId: e.currentTarget.dataset.id
         })
       }
       // 向右滑动  
@@ -174,14 +187,14 @@ Page({
     }
     clearInterval(interval); // 清除setInterval  
     time = 0;
-  },  
+  },
 
 
   /**
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    
+
   },
 
   /**
@@ -210,14 +223,14 @@ Page({
    */
   onReachBottom: async function () {
     let params = {
-      from:this.data.list.length + 1,
-      count:this.data.dataStep
+      from: this.data.list.length + 1,
+      count: this.data.dataStep
     }
-    if (this.data.isEnd !== true) {  
+    if (this.data.isEnd !== true) {
       await api.showLoading() // 显示loading
-      var cjlist = await api.getData(api.webapi.jielonglist,params);
+      var cjlist = await api.getData(api.webapi.jielonglist, params);
       await api.hideLoading() // 等待请求数据成功后，隐藏loading
-      if(api.reshook(cjlist,this.route)){
+      if (api.reshook(cjlist, this.route)) {
         this.renderList(cjlist)
       }
     }

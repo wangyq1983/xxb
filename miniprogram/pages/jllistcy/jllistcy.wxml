@@ -1,4 +1,7 @@
 <view>
+  <view class="guide">
+    <view class="guideitem underLine" bindtap="gotomy">个人中心</view><view class="guideitem">></view><view class="guideitem">我发起的</view>
+  </view>
   <view wx:for="{{list}}" wx:key="list" wx:if = "{{list}}">
      <view wx:if="{{item.type == '1'}}">
       <view class="jlbox" bindtap="gotoDetail" data-id="{{item.id}}">
@@ -6,7 +9,6 @@
         <view class="jlItemWord">{{item.title}}</view>
         <view style="font-size:20rpx; color:#bbb">{{item.startDate}}</view>
       </view>
-
     </view>
     <view wx:if="{{item.type == '2'}}">
       <view class="jlbox" bindtap="gotoTableDetail" data-id="{{item.id}}">
@@ -14,7 +16,6 @@
         <view class="jlItemWord">{{item.title}}</view>
         <view style="font-size:20rpx; color:#bbb">{{item.startDate}}</view>
       </view>
-
     </view>
     <view wx:if="{{item.type == '3'}}">
       <view class="jlbox" bindtap="gotoToupiaoDetail" data-id="{{item.id}}">
@@ -22,7 +23,6 @@
         <view class="jlItemWord">{{item.title}}</view>
         <view style="font-size:20rpx; color:#bbb">{{item.startDate}}</view>
       </view>
-
     </view>
     <!-- <view bindtap="delevent" data-id="{{item.id}}" class="jlbtn">
       删除
@@ -31,7 +31,6 @@
   <view wx:if = "{{isEmpty == 1}}" class="emptyBg">
     <nodata></nodata>
   </view>
-  
   <view wx:if="{{isEnd == true}}" class="isend">
      ^_^ 已经到底了，没有更多了 ^_^
   </view>

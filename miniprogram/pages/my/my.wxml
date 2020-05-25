@@ -58,11 +58,11 @@
         <text class='myTxt2'>使用帮助</text>
         <image src='/images/arrowright.png' class='myArrow'></image>
     </view>
-    <view class='myItem2' bindtap='followpublic'>
+    <view class='myItem2' bindtap=' '>
         <text class='myTxt2'>关注我们</text>
         <image src='/images/arrowright.png' class='myArrow'></image>
     </view>
-    <view class='myItem2'>
+    <!-- <view class='myItem2'>
         <button open-type="contact" bindcontact="handleContact">客服消息</button>
     </view>
     <view bindtap="pushkefu" class='myItem2'>
@@ -74,7 +74,7 @@
        <text class='myTxt2'>统一服务消息测试</text>
        
        <image src='/images/arrowright.png' class='myArrow'></image>
-    </view>
+    </view> -->
     <!-- <form report-submit="true" bindsubmit="getFormid">
         <button form-type="submit" style="width:60%">统一服务消息测试</button>
       </form>
@@ -104,5 +104,4 @@
   <!-- 
     目前该获取绑定手机的接口针对非个人开发者，且完成了认证的小程序开放。需谨慎使用，若用户举报较多或被发现在不必要场景下使用，微信有权永久回收该小程序的该接口权限。
    -->
-
 </view>
