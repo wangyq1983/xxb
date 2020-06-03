@@ -66,13 +66,9 @@ App({
         showCancel: false
       })
     })
-
-
-    this.globalData = {
+    this.globalData = { 
       userInfo: null,
       api
     }
   }
-
-
 });

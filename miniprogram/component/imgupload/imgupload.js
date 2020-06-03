@@ -88,6 +88,7 @@ Component({
             title: '上传中',
           })
           const filePath = res.tempFilePaths[0]
+
           // 上传图片
           var filename = new Date().getTime() + parseInt(Math.random() * 10000);
           var date = new Date(filename);
@@ -99,10 +100,7 @@ Component({
             success: res => {
               console.log('[上传文件] 成功：', res.fileID)
               console.log(that.data.imgUrl)
-              that.setData({
-                imgUrl: that.data.imgUrl.concat(res.fileID)
-              })
-              console.log(that.data.imgUrl)
+              that.cloudImgcheck(res.fileID)
             },
             fail: e => {
               console.error('[上传文件] 失败：', e)
@@ -112,14 +110,13 @@ Component({
               })
             },
             complete: () => {
-              wx.hideLoading()
             }
           })
         }
       })
     },
     // 相册选取多图片上传
-    uploadImgalbum:function () {
+    uploadImgalbum: function () {
       var that = this;
       let curindex = 0; //图片序号
       wx.chooseImage({
@@ -128,14 +125,11 @@ Component({
         sourceType: ['album'],
         success(res) {
           console.log(res);
-          // wx.showLoading({
-          //   title: '上传中',
-          // })
           const filePaths = res.tempFilePaths
           wx.showLoading({
             title: '上传中',
           })
-          let uploadrecur = async() => {
+          let uploadrecur = async () => {
             // 上传图片
             var filename = new Date().getTime() + parseInt(Math.random() * 10000);
             var date = new Date(filename);
@@ -151,14 +145,15 @@ Component({
               success: res => {
                 console.log('[上传文件] 成功：', res.fileID)
                 console.log(that.data.imgUrl)
-                that.setData({
-                  imgUrl: that.data.imgUrl.concat(res.fileID)
-                })
+                that.cloudImgcheck(res.fileID)
+                // that.setData({
+                //   imgUrl: that.data.imgUrl.concat(res.fileID)
+                // })
                 console.log(that.data.imgUrl)
-                if((curindex+1) < filePaths.length){
+                if ((curindex + 1) < filePaths.length) {
                   curindex++;
                   uploadrecur()
-                }else{
+                } else {
                   overrecur()
                 }
               },
@@ -170,19 +165,13 @@ Component({
                 })
               },
               complete: () => {
-                wx.hideLoading()
+                // wx.hideLoading()
               }
-            })  
-
-           
-            
-
+            })
           }
-
           let overrecur = () => {
             wx.hideLoading();
           }
-
           uploadrecur();
           // const filePath = res.tempFilePaths[0]
         },
@@ -204,12 +193,12 @@ Component({
           })
           console.log(res)
           const filePaths = res.tempFiles
-          
+
           // const filePaths = res.tempFilePaths
           wx.showLoading({
             title: '上传中',
           })
-          let uploadrecur = async() => {
+          let uploadrecur = async () => {
             // 上传图片
             var filename = new Date().getTime() + parseInt(Math.random() * 10000);
             var date = new Date(filename);
@@ -225,14 +214,15 @@ Component({
               success: res => {
                 console.log('[上传文件] 成功：', res.fileID)
                 console.log(that.data.imgUrl)
-                that.setData({
-                  imgUrl: that.data.imgUrl.concat(res.fileID)
-                })
+                that.cloudImgcheck(res.fileID)
+                // that.setData({
+                //   imgUrl: that.data.imgUrl.concat(res.fileID)
+                // })
                 console.log(that.data.imgUrl)
-                if((curindex+1) < filePaths.length){
+                if ((curindex + 1) < filePaths.length) {
                   curindex++;
                   uploadrecur()
-                }else{
+                } else {
                   overrecur()
                 }
               },
@@ -244,9 +234,9 @@ Component({
                 })
               },
               complete: () => {
-                wx.hideLoading()
+                // wx.hideLoading()
               }
-            })  
+            })
           }
 
           let overrecur = () => {
@@ -255,6 +245,36 @@ Component({
 
           uploadrecur();
 
+        }
+      })
+    },
+    // 调用云函数进行图片验证
+    cloudImgcheck:function(fileid){
+      var that = this;
+      wx.cloud.callFunction({
+        name: "imgcheck",
+        data: {
+          contentType: 'images/png',
+          fileID: fileid
+        }
+      }).then(res1 => {
+        console.log("检测结果", res1.result);
+        if (res1.result.errCode == 0) {
+          that.setData({
+            imgUrl: that.data.imgUrl.concat(fileid)
+          })
+          console.log(that.data.imgUrl);
+          wx.hideLoading()
+        } else {
+          wx.showToast({
+            icon: 'none',
+            title: '图片含有违法信息，不能上传',
+            duration:2000
+          })
+          setTimeout(function(){
+            wx.hideLoading()
+          },2000)
+          
         }
       })
     },

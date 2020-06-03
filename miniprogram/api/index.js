@@ -118,7 +118,7 @@ const getData = (url, param) => {
             })
           }else{
             wx.showToast({
-              title: '服务器错误,请退出后重启',
+              title: res.data.message,
               icon: 'none',
               duration: 1000
             })
