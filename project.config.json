@@ -21,12 +21,13 @@
 			"disablePlugins": [],
 			"outputPath": ""
 		},
+		"useIsolateContext": true,
 		"useCompilerModule": false,
 		"userConfirmedUseCompilerModuleSwitch": false
 	},
 	"appid": "wx7ac10166077abf72",
 	"projectname": "%E5%AD%A6%E5%B0%8F%E5%B8%AE",
-	"libVersion": "2.11.0",
+	"libVersion": "2.11.1",
 	"simulatorType": "wechat",
 	"simulatorPluginLibVersion": {},
 	"condition": {
