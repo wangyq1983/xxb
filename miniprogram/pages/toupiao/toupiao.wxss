@@ -11,7 +11,7 @@
   height:96rpx;
 }
 .tablearea{
-  margin-bottom:100rpx;
+  padding-bottom:100rpx;
 }
 .addQuestion{
   width:100%;

@@ -1,7 +1,7 @@
 <!--pages/wxlogin/wxlogin.wxml-->
 <view class='wxloginBox'>
   <view class='wxloginImg'>
-    <image src='/images/wxlogin.jpg' mode='aspectFit'></image>
+    <image src='/images/wxlogin.png' mode='aspectFit'></image>
   </view>
   
   <button class='wxloginBtn' wx:if="{{canIUse}}" open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo">微信一键登录</button>
@@ -10,6 +10,6 @@
   </view> -->
   <button class='otherlogin' bindtap="gotoziliao">不登录，查学习资料</button>
   <view class="tips">
-    tip : 使用学小帮,您可以自由的创建<text class="zd">信息收集表</text>、<text class="zd">接龙</text>、<text class="zd">投票</text>,并支持<text class="zd">导出Excel</text>。同时学小帮还提供了小学1-6年级语数英三科的<text class="zd">电子版课本</text>以及<text class="zd">英语mp3音频</text>,欢迎使用。
+    tip : 使用学小帮,您可以自由的创建<text class="zd">信息收集表</text>、<text class="zd">接龙</text>、<text class="zd">投票</text>,并支持<text class="zd">Excel格式名单导入查询未交人员</text>以及<text class="zd">导出Excel</text>。同时学小帮还提供了小学1-6年级语数英三科的<text class="zd">电子版课本</text>以及<text class="zd">英语mp3音频</text>,欢迎使用。
   </view>
 </view>

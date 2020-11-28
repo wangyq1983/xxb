@@ -115,9 +115,8 @@
   font-size: 30rpx;
 }
 .jieshi{
-  padding:0 30rpx 20rpx;
+  padding:0 30rpx 112rpx 30rpx;
   font-size: 24rpx;
-  margin-bottom: 92rpx;
 }
 .jieshi view{
   color:#999;

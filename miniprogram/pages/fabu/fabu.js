@@ -109,6 +109,15 @@ Page({
       url: '/pages/toupiao/toupiao',
     })
   },
+  gotobumoceng:function(){
+    wx.navigateToMiniProgram({
+      appId: 'wx68fa52964aa56d13',
+      path: 'pages/rwlist/rwlist',
+      success(res) {
+        
+      }
+    })
+  },
   gotohelp:function(){
     wx.navigateTo({
       url: '/pages/jlhelp/jlhelp',

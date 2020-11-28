@@ -10,9 +10,14 @@ page{
 }
 .wxloginImg{
   width:100%;
-  height:360rpx;
+  height:333rpx;
   text-align: center;
+  padding-top: 27rpx;
   overflow: hidden
+}
+.wxloginImg image{
+  width:500rpx;
+  height:333rpx;
 }
 .wxloginBtn{
   width:350rpx;

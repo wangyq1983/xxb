@@ -58,7 +58,7 @@ Page({
         })
       }
     }
-    
+    console.log(options.index)
     console.log(this.data.itemParams)
   },
   changeIndicatorDots:function(){

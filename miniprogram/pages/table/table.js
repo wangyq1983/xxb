@@ -167,10 +167,18 @@ Page({
     var that = this;
     var arridx = e.currentTarget.dataset.idx;
     wx.showActionSheet({
-      itemList: ['删除'],
+      itemList: ['编辑','删除'],
       success(res) {
         console.log(res.tapIndex);
         if(res.tapIndex == 0){
+          console.log(e);
+          var params = JSON.stringify(e.currentTarget.dataset.con);
+          var idx = e.currentTarget.dataset.idx;
+          wx.navigateTo({
+            url: '/pages/tableadd/tableadd?index='+idx+'&params='+params,
+          })
+        }
+        if(res.tapIndex == 1){
           arrdata.splice(arridx, 1);
           that.setData({
             paramsList: arrdata

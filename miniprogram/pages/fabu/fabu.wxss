@@ -62,3 +62,14 @@
   color:#2e79fa;
   margin-top:30rpx;
 }
+.banner{
+  width:682rpx;
+  height: 182rpx;
+  padding:9rpx 29rpx;
+  margin-bottom: 20rpx;
+}
+.banner image{
+  width:682rpx;
+  height: 182rpx;
+  border-radius: 6rpx;
+}

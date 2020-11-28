@@ -1,148 +1,156 @@
 {
-	"miniprogramRoot": "miniprogram/",
-	"cloudfunctionRoot": "cloudfunctions/",
-	"setting": {
-		"urlCheck": false,
-		"es6": false,
-		"enhance": true,
-		"postcss": true,
-		"minified": true,
-		"newFeature": true,
-		"coverView": true,
-		"nodeModules": true,
-		"autoAudits": false,
-		"showShadowRootInWxmlPanel": true,
-		"scopeDataCheck": false,
-		"checkInvalidKey": true,
-		"checkSiteMap": true,
-		"uploadWithSourceMap": true,
-		"babelSetting": {
-			"ignore": [],
-			"disablePlugins": [],
-			"outputPath": ""
-		},
-		"useIsolateContext": true,
-		"useCompilerModule": false,
-		"userConfirmedUseCompilerModuleSwitch": false
-	},
-	"appid": "wx7ac10166077abf72",
-	"projectname": "%E5%AD%A6%E5%B0%8F%E5%B8%AE",
-	"libVersion": "2.11.1",
-	"simulatorType": "wechat",
-	"simulatorPluginLibVersion": {},
-	"condition": {
-		"search": {
-			"current": -1,
-			"list": []
-		},
-		"conversation": {
-			"current": -1,
-			"list": []
-		},
-		"plugin": {
-			"current": -1,
-			"list": []
-		},
-		"game": {
-			"list": []
-		},
-		"gamePlugin": {
-			"current": -1,
-			"list": []
-		},
-		"miniprogram": {
-			"current": 0,
-			"list": [
-				{
-					"id": -1,
-					"name": "db guide",
-					"pathName": "pages/databaseGuide/databaseGuide",
-					"query": ""
-				},
-				{
-					"id": -1,
-					"name": "列表",
-					"pathName": "pages/list/list",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "音频测试",
-					"pathName": "pages/test/test",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "pages/jldetail/jldetail",
-					"pathName": "pages/jldetail/jldetail",
-					"query": "id=142395",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "pages/my/my",
-					"pathName": "pages/my/my",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "pages/roster/roster",
-					"pathName": "pages/roster/roster",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "pages/toupiaodetail/toupiaodetail",
-					"pathName": "pages/toupiaodetail/toupiaodetail",
-					"query": "id=143116",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "pages/tablefill/tablefill",
-					"pathName": "pages/tablefill/tablefill",
-					"query": "id=143115",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "pages/jllistcj/jllistcj",
-					"pathName": "pages/jllistcj/jllistcj",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "pages/tablefill/tablefill",
-					"pathName": "pages/tablefill/tablefill",
-					"query": "id=143178",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "pages/table/table",
-					"pathName": "pages/table/table",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "pages/jielong/jielong",
-					"pathName": "pages/jielong/jielong",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "pages/sharejl/sharejl",
-					"pathName": "pages/sharejl/sharejl",
-					"scene": null
-				}
-			]
-		}
-	}
+  "miniprogramRoot": "miniprogram/",
+  "cloudfunctionRoot": "cloudfunctions/",
+  "setting": {
+    "urlCheck": false,
+    "es6": false,
+    "enhance": true,
+    "postcss": true,
+    "minified": true,
+    "newFeature": true,
+    "coverView": true,
+    "nodeModules": true,
+    "autoAudits": false,
+    "showShadowRootInWxmlPanel": true,
+    "scopeDataCheck": false,
+    "checkInvalidKey": true,
+    "checkSiteMap": true,
+    "uploadWithSourceMap": true,
+    "useMultiFrameRuntime": false,
+    "useApiHook": true,
+    "babelSetting": {
+      "ignore": [],
+      "disablePlugins": [],
+      "outputPath": ""
+    },
+    "useIsolateContext": true,
+    "useCompilerModule": true,
+    "userConfirmedUseCompilerModuleSwitch": false,
+    "packNpmManually": false,
+    "packNpmRelationList": [],
+    "minifyWXSS": true
+  },
+  "appid": "wx7ac10166077abf72",
+  "projectname": "%E5%AD%A6%E5%B0%8F%E5%B8%AE",
+  "libVersion": "2.11.1",
+  "simulatorType": "wechat",
+  "simulatorPluginLibVersion": {},
+  "condition": {
+    "search": {
+      "list": []
+    },
+    "conversation": {
+      "list": []
+    },
+    "plugin": {
+      "list": []
+    },
+    "game": {
+      "list": []
+    },
+    "gamePlugin": {
+      "list": []
+    },
+    "miniprogram": {
+      "list": [
+        {
+          "id": -1,
+          "name": "db guide",
+          "pathName": "pages/databaseGuide/databaseGuide",
+          "query": ""
+        },
+        {
+          "id": -1,
+          "name": "列表",
+          "pathName": "pages/list/list",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "音频测试",
+          "pathName": "pages/test/test",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/jldetail/jldetail",
+          "pathName": "pages/jldetail/jldetail",
+          "query": "id=142395",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/my/my",
+          "pathName": "pages/my/my",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/roster/roster",
+          "pathName": "pages/roster/roster",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/toupiaodetail/toupiaodetail",
+          "pathName": "pages/toupiaodetail/toupiaodetail",
+          "query": "id=143116",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/tablefill/tablefill",
+          "pathName": "pages/tablefill/tablefill",
+          "query": "id=143115",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/jllistcj/jllistcj",
+          "pathName": "pages/jllistcj/jllistcj",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/tablefill/tablefill",
+          "pathName": "pages/tablefill/tablefill",
+          "query": "id=143178",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/table/table",
+          "pathName": "pages/table/table",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/jielong/jielong",
+          "pathName": "pages/jielong/jielong",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/sharejl/sharejl",
+          "pathName": "pages/sharejl/sharejl",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": 13,
+          "name": "pages/ziliao/ziliao",
+          "pathName": "pages/ziliao/ziliao",
+          "query": "",
+          "scene": null
+        }
+      ]
+    }
+  }
 }

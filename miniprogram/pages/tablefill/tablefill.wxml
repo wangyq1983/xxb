@@ -1,6 +1,6 @@
  <view>
   <form bindsubmit="cyTable">
-    <view class="jlWarp" style="margin-bottom:120rpx;">
+    <view class="jlWarp">
       <view class="jlCon">
         <view class="jlTitle">
           {{jielong.title}}
@@ -32,6 +32,8 @@
           <checkin cid="{{id}}" type ="2" count = "{{totalnum}}"></checkin>
         </view>
       </view>
+
+      <ad unit-id="adunit-8b0644d323b22f4e"></ad>
       <editorbox isedit="{{jielong.editable}}" eid="{{id}}" type="2" listLength="{{jielong.statisticsTotal}}"></editorbox>
       <view class="tableFillBox" wx:for="{{itemlist}}" wx:key="itemlist" wx:for-index="idx">
         <view>

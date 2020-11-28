@@ -2,13 +2,6 @@
   <view class="guide">
     <view class="guideitem underLine" bindtap="gotomy">个人中心</view><view class="guideitem">></view><view class="guideitem">我发起的</view>
   </view>
-
-    
-      
-         
-
-          
-      
    
   <view wx:for="{{list}}" wx:key="list" class="jlwarp" wx:if="{{list}}">
     

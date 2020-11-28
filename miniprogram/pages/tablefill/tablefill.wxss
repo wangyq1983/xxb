@@ -1,6 +1,6 @@
 /* pages/jldetail/jldetail.wxss */
 .jlWarp{
-  margin-bottom:110rpx;
+  padding-bottom:120rpx;
 }
 .jlCon{
   width:100%;
